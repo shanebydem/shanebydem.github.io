@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>妖精sp-妖精题材作品精选与观看指南专题</title>
+<meta name="description" content="妖精sp专题页，整理妖精题材动画、漫画与轻小说的常见设定、观看顺序、挑选建议和常见问题，帮助读者快速了解妖精sp相关内容与观看方式。">
+<meta name="keywords" content="妖精sp,妖精题材,妖精动画,妖精漫画,妖精作品推荐,妖精设定">
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+<style>
+:root{
+  --ink:#1f2a33;
+  --ink-soft:#4a5a66;
+  --leaf:#2f7d5d;
+  --leaf-dark:#1f5c43;
+  --leaf-light:#e6f4ee;
+  --amber:#d98b3a;
+  --paper:#f7faf8;
+  --line:#dbe6e0;
+  --radius:14px;
+  --shadow:0 6px 24px rgba(31,42,51,.08);
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
+  color:var(--ink);
+  background:var(--paper);
+  line-height:1.75;
+  font-size:16px;
+}
+a{color:inherit;text-decoration:none;}
+img{max-width:100%;display:block;}
+.wrap{width:100%;max-width:1160px;margin:0 auto;padding:0 20px;}
+
+/* ---------- 顶栏 ---------- */
+.topbar{
+  background:linear-gradient(120deg,#1f5c43 0%,#2f7d5d 55%,#3f9a72 100%);
+  color:#fff;
+  position:relative;
+  overflow:hidden;
+}
+.topbar::after{
+  content:"";
+  position:absolute;
+  right:-80px;top:-80px;
+  width:280px;height:280px;
+  border-radius:50%;
+  background:rgba(255,255,255,.07);
+}
+.topbar-inner{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:20px;padding:16px 0;position:relative;z-index:2;
+}
+.brand{display:flex;align-items:center;gap:12px;}
+.brand-mark{
+  width:44px;height:44px;flex:0 0 44px;
+  border-radius:12px;
+  background:rgba(255,255,255,.15);
+  border:1px solid rgba(255,255,255,.35);
+  display:flex;align-items:center;justify-content:center;
+  font-size:22px;
+}
+.brand-text strong{display:block;font-size:19px;letter-spacing:.5px;}
+.brand-text span{display:block;font-size:12px;opacity:.82;letter-spacing:1px;}
+.topnav{display:flex;gap:6px;flex-wrap:wrap;}
+.topnav a{
+  padding:7px 14px;border-radius:999px;font-size:14px;
+  color:rgba(255,255,255,.9);
+  transition:background .2s,color .2s;
+}
+.topnav a:hover{background:rgba(255,255,255,.18);color:#fff;}
+
+/* ---------- 首屏 ---------- */
+.hero{
+  background:linear-gradient(180deg,#eef7f2 0%,#f7faf8 100%);
+  border-bottom:1px solid var(--line);
+  padding:52px 0 46px;
+}
+.hero-grid{
+  display:grid;
+  grid-template-columns:1.35fr 1fr;
+  gap:44px;
+  align-items:center;
+}
+.hero-tag{
+  display:inline-block;
+  font-size:13px;letter-spacing:1px;
+  color:var(--leaf-dark);
+  background:var(--leaf-light);
+  border:1px solid #c8e3d6;
+  padding:5px 14px;border-radius:999px;
+  margin-bottom:18px;
+}
+.hero h1{
+  font-size:clamp(26px,3.4vw,38px);
+  line-height:1.35;
+  letter-spacing:.5px;
+  margin-bottom:16px;
+}
+.hero h1 em{
+  font-style:normal;
+  color:var(--leaf);
+}
+.hero p.lead{
+  color:var(--ink-soft);
+  font-size:16px;
+  max-width:620px;
+  margin-bottom:26px;
+}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;}
+.btn{
+  display:inline-block;
+  padding:11px 24px;
+  border-radius:999px;
+  font-size:15px;
+  transition:transform .15s,box-shadow .2s,background .2s;
+}
+.btn-primary{
+  background:var(--leaf);
+  color:#fff;
+  box-shadow:0 6px 16px rgba(47,125,93,.28);
+}
+.btn-primary:hover{background:var(--leaf-dark);transform:translateY(-2px);}
+.btn-ghost{
+  background:#fff;
+  color:var(--leaf-dark);
+  border:1px solid #c8e3d6;
+}
+.btn-ghost:hover{border-color:var(--leaf);transform:translateY(-2px);}
+.hero-aside{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:24px 24px 20px;
+}
+.hero-aside h2{
+  font-size:16px;
+  margin-bottom:14px;
+  padding-bottom:10px;
+  border-bottom:1px dashed var(--line);
+  color:var(--leaf-dark);
+}
+.hero-aside ul{list-style:none;}
+.hero-aside li{
+  display:flex;gap:10px;
+  font-size:14.5px;
+  color:var(--ink-soft);
+  padding:9px 0;
+  border-bottom:1px solid #f0f5f2;
+}
+.hero-aside li:last-child{border-bottom:none;}
+.hero-aside li i{
+  font-style:normal;
+  color:var(--amber);
+  font-weight:700;
+  flex:0 0 auto;
+}
+
+/* ---------- 通用区块 ---------- */
+.section{padding:54px 0;}
+.section-head{
+  display:flex;align-items:flex-end;justify-content:space-between;
+  gap:16px;margin-bottom:28px;flex-wrap:wrap;
+}
+.section-head h2{
+  font-size:23px;
+  letter-spacing:.5px;
+  position:relative;
+  padding-left:14px;
+}
+.section-head h2::before{
+  content:"";
+  position:absolute;left:0;top:6px;bottom:6px;
+  width:5px;border-radius:3px;
+  background:linear-gradient(180deg,var(--leaf),#7cc4a4);
+}
+.section-head p{
+  color:var(--ink-soft);
+  font-size:14px;
+  max-width:520px;
+}
+
+/* ---------- 分类卡 ---------- */
+.cat-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px;
+}
+.cat-card{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:22px 20px;
+  transition:transform .18s,box-shadow .2s,border-color .2s;
+}
+.cat-card:hover{
+  transform:translateY(-4px);
+  box-shadow:var(--shadow);
+  border-color:#bfe0d2;
+}
+.cat-card .ico{
+  width:42px;height:42px;border-radius:11px;
+  background:var(--leaf-light);
+  color:var(--leaf-dark);
+  display:flex;align-items:center;justify-content:center;
+  font-size:20px;margin-bottom:14px;
+}
+.cat-card h3{font-size:16.5px;margin-bottom:8px;}
+.cat-card p{font-size:14px;color:var(--ink-soft);}
+
+/* ---------- 作品列表 ---------- */
+.work-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+.work-card{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  overflow:hidden;
+  display:flex;flex-direction:column;
+  transition:transform .18s,box-shadow .2s;
+}
+.work-card:hover{transform:translateY(-4px);box-shadow:var(--shadow);}
+.work-thumb{
+  height:118px;
+  background:linear-gradient(135deg,#2f7d5d,#5cb389 60%,#a8dcc4);
+  display:flex;align-items:center;justify-content:center;
+  color:#fff;font-size:15px;letter-spacing:2px;
+  position:relative;
+}
+.work-thumb span{
+  background:rgba(0,0,0,.18);
+  padding:5px 14px;border-radius:999px;
+  font-size:13px;letter-spacing:1px;
+}
+.work-body{padding:18px 20px 20px;flex:1;display:flex;flex-direction:column;}
+.work-body h3{font-size:16.5px;margin-bottom:8px;}
+.work-body p{font-size:14px;color:var(--ink-soft);flex:1;}
+.work-meta{
+  display:flex;gap:8px;flex-wrap:wrap;
+  margin-top:14px;
+}
+.work-meta span{
+  font-size:12.5px;
+  color:var(--leaf-dark);
+  background:var(--leaf-light);
+  padding:3px 10px;border-radius:6px;
+}
+
+/* ---------- 设定说明 ---------- */
+.setting{
+  background:#fff;
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+.setting-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:26px;
+}
+.setting-item{
+  border-left:3px solid #cde7db;
+  padding:4px 0 4px 18px;
+}
+.setting-item h3{
+  font-size:16.5px;margin-bottom:8px;
+  color:var(--leaf-dark);
+}
+.setting-item p{font-size:14.5px;color:var(--ink-soft);}
+
+/* ---------- 观看顺序 ---------- */
+.steps{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px;
+  counter-reset:step;
+}
+.step{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:22px 20px;
+  position:relative;
+}
+.step::before{
+  counter-increment:step;
+  content:"0" counter(step);
+  font-size:26px;
+  font-weight:700;
+  color:#cfe7dc;
+  display:block;
+  margin-bottom:10px;
+  letter-spacing:1px;
+}
+.step h3{font-size:16px;margin-bottom:8px;}
+.step p{font-size:14px;color:var(--ink-soft);}
+
+/* ---------- 建议列表 ---------- */
+.tips{
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  gap:32px;
+  align-items:start;
+}
+.tips-list{list-style:none;}
+.tips-list li{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:16px 18px;
+  margin-bottom:12px;
+  font-size:14.5px;
+  color:var(--ink-soft);
+  display:flex;gap:12px;
+}
+.tips-list li strong{
+  color:var(--ink);
+  flex:0 0 auto;
+}
+.tips-list li b{
+  color:var(--amber);
+  flex:0 0 auto;
+}
+.notice{
+  background:linear-gradient(160deg,#1f5c43,#2f7d5d);
+  color:#fff;
+  border-radius:var(--radius);
+  padding:26px 24px;
+}
+.notice h3{
+  font-size:17px;
+  margin-bottom:14px;
+  padding-bottom:12px;
+  border-bottom:1px solid rgba(255,255,255,.2);
+}
+.notice ul{list-style:none;}
+.notice li{
+  font-size:14px;
+  color:rgba(255,255,255,.88);
+  padding:7px 0 7px 18px;
+  position:relative;
+}
+.notice li::before{
+  content:"";
+  position:absolute;left:0;top:15px;
+  width:6px;height:6px;border-radius:50%;
+  background:#9fe0c2;
+}
+
+/* ---------- FAQ ---------- */
+.faq-list{max-width:900px;}
+.faq-item{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:12px;
+  margin-bottom:12px;
+  overflow:hidden;
+}
+.faq-item summary{
+  cursor:pointer;
+  padding:16px 20px;
+  font-size:15.5px;
+  font-weight:600;
+  list-style:none;
+  display:flex;align-items:center;justify-content:space-between;
+  gap:14px;
+}
+.faq-item summary::-webkit-details-marker{display:none;}
+.faq-item summary::after{
+  content:"+";
+  font-size:20px;
+  color:var(--leaf);
+  flex:0 0 auto;
+  transition:transform .2s;
+}
+.faq-item[open] summary::after{transform:rotate(45deg);}
+.faq-item .faq-body{
+  padding:0 20px 18px;
+  font-size:14.5px;
+  color:var(--ink-soft);
+  border-top:1px dashed var(--line);
+  padding-top:14px;
+}
+
+/* ---------- 页脚 ---------- */
+footer{
+  background:#16241d;
+  color:rgba(255,255,255,.72);
+  padding:44px 0 26px;
+  margin-top:20px;
+}
+.foot-grid{
+  display:grid;
+  grid-template-columns:1.4fr 1fr 1fr;
+  gap:30px;
+  padding-bottom:26px;
+  border-bottom:1px solid rgba(255,255,255,.12);
+}
+.foot-grid h4{
+  color:#fff;font-size:15px;margin-bottom:14px;
+}
+.foot-grid p{font-size:13.5px;line-height:1.9;}
+.foot-grid ul{list-style:none;}
+.foot-grid li{font-size:13.5px;padding:4px 0;}
+.foot-grid a:hover{color:#9fe0c2;}
+.copy{
+  padding-top:20px;
+  font-size:13px;
+  text-align:center;
+  color:rgba(255,255,255,.5);
+}
+
+/* ---------- 响应式 ---------- */
+@media (max-width:960px){
+  .hero-grid{grid-template-columns:1fr;gap:30px;}
+  .cat-grid{grid-template-columns:repeat(2,1fr);}
+  .work-grid{grid-template-columns:repeat(2,1fr);}
+  .setting-grid{grid-template-columns:1fr;}
+  .steps{grid-template-columns:repeat(2,1fr);}
+  .tips{grid-template-columns:1fr;}
+  .foot-grid{grid-template-columns:1fr 1fr;}
+}
+@media (max-width:620px){
+  body{font-size:15px;}
+  .topbar-inner{flex-direction:column;align-items:flex-start;gap:12px;}
+  .topnav a{padding:6px 11px;font-size:13px;}
+  .hero{padding:36px 0 32px;}
+  .section{padding:38px 0;}
+  .cat-grid{grid-template-columns:1fr;}
+  .work-grid{grid-template-columns:1fr;}
+  .steps{grid-template-columns:1fr;}
+  .foot-grid{grid-template-columns:1fr;}
+  .section-head h2{font-size:20px;}
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <div class="brand">
+      <div class="brand-mark">妖</div>
+      <div class="brand-text">
+        <strong>妖精SP专题</strong>
+        <span>妖精题材作品索引与观看指南</span>
+      </div>
+    </div>
+    <nav class="topnav" aria-label="主导航">
+      <a href="#intro">专题简介</a>
+      <a href="#types">题材分类</a>
+      <a href="#works">作品推荐</a>
+      <a href="#order">观看顺序</a>
+      <a href="#faq">常见问题</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- 首屏 -->
+  <section class="hero" id="intro">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="hero-tag">妖精题材 · 精选导览</span>
+        <h1>妖精sp：妖精题材<em>作品精选</em>与观看指南</h1>
+        <p class="lead">
+          妖精sp通常被用来指代以妖精、精灵、自然灵等幻想种族为核心的作品专题。本页把这类作品常见的世界观设定、题材分支、挑选思路和观看顺序整理在一起，方便刚接触的读者快速建立整体印象，也方便老读者按兴趣方向查找。
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#works">浏览作品推荐</a>
+          <a class="btn btn-ghost" href="#order">了解观看顺序</a>
+        </div>
+      </div>
+      <aside class="hero-aside">
+        <h2>本页可以帮你了解</h2>
+        <ul>
+          <li><i>01</i><span>妖精题材的基本设定与常见种族划分</span></li>
+          <li><i>02</i><span>动画、漫画、轻小说等不同载体的差异</span></li>
+          <li><i>03</i><span>按口味挑选作品的方向性建议</span></li>
+          <li><i>04</i><span>系列作品的合理观看与阅读顺序</span></li>
+          <li><i>05</i><span>查找资源时的注意事项与常见问题</span></li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <!-- 题材分类 -->
+  <section class="section" id="types">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>妖精题材的常见分类</h2>
+        <p>妖精类作品并不只有一种面貌，按世界观和叙事重心的不同，大致可以分为以下几种方向。</p>
+      </div>
+      <div class="cat-grid">
+        <article class="cat-card">
+          <div class="ico">森</div>
+          <h3>自然与森林系</h3>
+          <p>以森林、湖泊、四季更替为舞台，妖精往往与自然秩序绑定，故事节奏舒缓，重视氛围与画面表现。</p>
+        </article>
+        <article class="cat-card">
+          <div class="ico">战</div>
+          <h3>奇幻冒险系</h3>
+          <p>妖精作为队伍成员或关键种族登场，围绕旅途、战斗与成长展开，世界观通常更庞大，设定密度较高。</p>
+        </article>
+        <article class="cat-card">
+          <div class="ico">日</div>
+          <h3>日常治愈系</h3>
+          <p>妖精进入人类生活空间，以轻喜剧和温情桥段为主，单元结构明显，适合碎片时间观看。</p>
+        </article>
+        <article class="cat-card">
+          <div class="ico">谜</div>
+          <h3>神秘与民俗系</h3>
+          <p>取材于各地民间传说，妖精带有亦正亦邪的模糊立场，故事常围绕约定、禁忌与代价展开。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 作品推荐 -->
+  <section class="section" id="works" style="background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>妖精sp 作品推荐方向</h2>
+        <p>以下按类型方向给出挑选思路，具体作品请以正规平台的实际情况为准。</p>
+      </div>
+      <div class="work-grid">
+        <article class="work-card">
+          <div class="work-thumb"><span>森林奇幻</span></div>
+          <div class="work-body">
+            <h3>森林守护与四季物语</h3>
+            <p>适合喜欢慢节奏、重视美术与配乐的观众。重点看妖精与自然环境之间的共生关系，以及人类介入后产生的冲突。</p>
+            <div class="work-meta"><span>氛围向</span><span>单元剧</span></div>
+          </div>
+        </article>
+        <article class="work-card">
+          <div class="work-thumb"><span>旅途冒险</span></div>
+          <div class="work-body">
+            <h3>队伍中的妖精同伴</h3>
+            <p>妖精作为冒险队伍的一员，承担侦查、治疗或沟通自然的职责。看点在于种族差异带来的摩擦与磨合。</p>
+            <div class="work-meta"><span>群像</span><span>成长线</span></div>
+          </div>
+        </article>
+        <article class="work-card">
+          <div class="work-thumb"><span>都市日常</span></div>
+          <div class="work-body">
+            <h3>住进人类家里的妖精</h3>
+            <p>把幻想种族放进现代生活场景，用生活细节制造笑点与温情。单集独立性强，适合当作轻松的下饭内容。</p>
+            <div class="work-meta"><span>治愈</span><span>轻喜剧</span></div>
+          </div>
+        </article>
+        <article class="work-card">
+          <div class="work-thumb"><span>民俗传说</span></div>
+          <div class="work-body">
+            <h3>约定与禁忌的传说</h3>
+            <p>取材自民间故事，妖精的立场并不单纯。观看时留意伏笔与规则设定，往往在结尾才会揭示真正代价。</p>
+            <div class="work-meta"><span>悬疑</span><span>短篇</span></div>
+          </div>
+        </article>
+        <article class="work-card">
+          <div class="work-thumb"><span>轻小说改编</span></div>
+          <div class="work-body">
+            <h3>长篇设定向作品</h3>
+            <p>世界观庞大、专有名词多，建议先看动画入门，再回到原作补充细节。阅读时做好人物与势力关系的记录会更轻松。</p>
+            <div class="work-meta"><span>长篇</span><span>设定密</span></div>
+          </div>
+        </article>
+        <article class="work-card">
+          <div class="work-thumb"><span>漫画原作</span></div>
+          <div class="work-body">
+            <h3>线条细腻的漫画原作</h3>
+            <p>漫画在角色表情和分镜节奏上往往比动画更细腻，适合想深入理解人物心理的读者，也便于按自己的节奏推进。</p>
+            <div class="work-meta"><span>原作</span><span>慢读</span></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 设定说明 -->
+  <section class="section setting">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>看懂妖精题材的几个关键设定</h2>
+        <p>了解这些常见概念，能显著降低进入新作品时的理解成本。</p>
+      </div>
+      <div class="setting-grid">
+        <div class="setting-item">
+          <h3>种族与寿命</h3>
+          <p>妖精常被设定为寿命远长于人类的种族，这一差异会直接带来时间尺度上的叙事张力，也是很多作品情感冲突的来源。</p>
+        </div>
+        <div class="setting-item">
+          <h3>与自然的契约</h3>
+          <p>不少作品把妖精的力量与特定自然要素绑定，失去环境就等于失去力量。理解这一点，有助于判断剧情中的强弱变化是否合理。</p>
+        </div>
+        <div class="setting-item">
+          <h3>名字与真名</h3>
+          <p>“真名”是常见设定，知道真名往往意味着掌握对方。遇到相关桥段时，留意作者是否在前期埋下名字的线索。</p>
+        </div>
+        <div class="setting-item">
+          <h3>可见与不可见</h3>
+          <p>妖精是否被普通人看见，常常决定了作品是走都市日常路线还是纯幻想路线，也是判断作品基调的快速方法。</p>
+        </div>
+        <div class="setting-item">
+          <h3>立场的中立性</h3>
+          <p>妖精未必是善或恶的阵营代表，更多时候遵循自身规则。把它们的行动理解为“遵循规则”而非“道德选择”，更容易读懂剧情。</p>
+        </div>
+        <div class="setting-item">
+          <h3>代价与等价交换</h3>
+          <p>获得妖精帮助通常需要付出代价，这是民俗类作品的核心结构之一，也是理解结局走向的重要线索。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 观看顺序 -->
+  <section class="section" id="order">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>妖精sp 内容观看与阅读顺序建议</h2>
+        <p>面对系列作品和多个改编版本时，可以参考下面的顺序减少理解障碍。</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <h3>先看简介与设定</h3>
+          <p>先读作品简介和主要角色介绍，确认题材方向是否符合自己的口味，避免看了几集才发现不对路。</p>
+        </div>
+        <div class="step">
+          <h3>从动画或短篇入门</h3>
+          <p>动画和短篇门槛较低，能快速建立对世界观和角色关系的基本印象，适合作为入门选择。</p>
+        </div>
+        <div class="step">
+          <h3>回到原作补细节</h3>
+          <p>对设定产生兴趣后，再阅读漫画或轻小说原作，补充动画中省略的支线与人物背景。</p>
+        </div>
+        <div class="step">
+          <h3>按时间线或发布顺序推进</h3>
+          <p>系列作品通常建议按发布顺序观看；若作品明确标注时间线，则以官方公布的时间线为准。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 挑选建议 -->
+  <section class="section" style="background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>挑选与查找时的实用建议</h2>
+        <p>如何在有限时间里找到真正适合自己的妖精题材作品。</p>
+      </div>
+      <div class="tips">
+        <ul class="tips-list">
+          <li><b>01</b><span><strong>先定基调：</strong>想放松就看日常治愈系，想沉浸就看世界观庞大的冒险系，先确定基调能省下大量筛选时间。</span></li>
+          <li><b>02</b><span><strong>看标签而非只看标题：</strong>题材标签、篇幅长度、完结状态往往比标题更能反映作品的实际内容。</span></li>
+          <li><b>03</b><span><strong>注意改编差异：</strong>同一作品的不同载体在剧情取舍上可能差别较大，选择前可以先看简介中的说明。</span></li>
+          <li><b>04</b><span><strong>控制单次投入：</strong>长篇作品不必一次追完，按篇章分段观看更不容易疲劳。</span></li>
+          <li><b>05</b><span><strong>做好记录：</strong>设定复杂的作品建议简单记录人物关系，后续回顾时会更顺畅。</span></li>
+        </ul>
+        <aside class="notice">
+          <h3>查找资源时的注意事项</h3>
+          <ul>
+            <li>优先选择正规、有版权说明的平台观看与阅读。</li>
+            <li>对来源不明的下载链接和弹窗保持警惕，避免点击可疑页面。</li>
+            <li>注意区分官方发布信息与网友二次整理内容，避免被不准确的说法误导。</li>
+            <li>涉及付费内容时，先确认平台与支付渠道的正规性。</li>
+            <li>合理安排观看时间，注意用眼与作息。</li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" id="faq">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>常见问题</h2>
+        <p>关于妖精sp与妖精题材作品，读者最常提出的几个问题。</p>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item" open>
+          <summary>妖精sp 具体指什么？</summary>
+          <div class="faq-body">
+            这个说法通常被用作妖精题材作品的专题或索引代称，用来把与妖精、精灵、自然灵相关的动画、漫画、轻小说等内容归到一起。不同语境下指向的范围可能略有差异，建议结合具体页面上的分类和标签来确认。
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>妖精和精灵是同一个概念吗？</summary>
+          <div class="faq-body">
+            在中文语境里两者常被混用，但在具体作品中往往有区分。有的设定把精灵视为更接近人类形态的种族，把妖精视为更小、更贴近自然的灵体；也有作品完全不区分。判断时以作品自身的设定说明为准。
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>完全没接触过妖精题材，从哪部开始比较好？</summary>
+          <div class="faq-body">
+            建议先从篇幅较短、设定简单的日常治愈系或短篇作品入手，适应叙事节奏之后再进入长篇设定向作品。这样不容易因为专有名词过多而中途放弃。
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>系列作品一定要按顺序看吗？</summary>
+          <div class="faq-body">
+            如果各季之间存在连续剧情和人物成长线，按发布顺序观看体验最好。若是单元剧结构，单集独立性强，顺序要求会宽松很多。观看前可以先看简介中是否有顺序说明。
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>在哪里可以找到这些作品？</summary>
+          <div class="faq-body">
+            建议通过正规的视频平台、阅读平台或官方渠道查找，这类渠道通常有清晰的版权信息和作品介绍。对于来源不明的链接，建议保持谨慎，不要随意下载或填写个人信息。
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h4>妖精SP专题</h4>
+        <p>一个围绕妖精、精灵与自然灵题材的导览页面，整理常见设定、题材分类、挑选思路与观看顺序，帮助读者更高效地找到感兴趣的内容。</p>
+      </div>
+      <div>
+        <h4>页面导航</h4>
+        <ul>
+          <li><a href="#intro">专题简介</a></li>
+          <li><a href="#types">题材分类</a></li>
+          <li><a href="#works">作品推荐</a></li>
+          <li><a href="#order">观看顺序</a></li>
+          <li><a href="#faq">常见问题</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>阅读提示</h4>
+        <ul>
+          <li>以正规平台内容为准</li>
+          <li>注意辨别信息真伪</li>
+          <li>合理安排观看时间</li>
+          <li>尊重版权与创作者</li>
+        </ul>
+      </div>
+    </div>
+    <p class="copy">本页内容为题材整理与阅读参考，具体作品信息请以官方发布为准。</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var items = document.querySelectorAll('.faq-item');
+  items.forEach(function(item){
+    item.addEventListener('toggle', function(){
+      if(item.open){
+        items.forEach(function(other){
+          if(other !== item){ other.open = false; }
+        });
+      }
+    });
+  });
+})();
+</script>
+
+</body>
+              </html>
