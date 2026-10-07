@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>樱花动漫-热门动漫推荐与在线观看指南</title>
+<meta name="description" content="樱花动漫提供热门动漫推荐、新番更新追踪、经典番剧回顾与观看指南，帮助你了解动画类型、更新节奏、观看方式与选番建议。">
+<meta name="keywords" content="樱花动漫,动漫推荐,新番更新,在线观看,番剧指南,动画分类">
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --pink:#ff6b9d;
+  --pink-deep:#e84a7f;
+  --pink-soft:#fff0f5;
+  --purple:#8b5cf6;
+  --purple-soft:#f3f0ff;
+  --sky:#38bdf8;
+  --sky-soft:#eaf7ff;
+  --ink:#1f2233;
+  --ink-2:#4a4f63;
+  --ink-3:#7c8196;
+  --line:#f0e6ee;
+  --bg:#fdfbfe;
+  --card:#ffffff;
+  --radius:16px;
+  --shadow:0 6px 24px rgba(139,92,246,.08);
+}
+html{scroll-behavior:smooth}
+body{
+  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Helvetica Neue",Arial,sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+ul{list-style:none}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+
+/* ---------- 顶部公告 ---------- */
+.topbar{
+  background:linear-gradient(90deg,var(--pink),var(--purple));
+  color:#fff;
+  font-size:13px;
+  text-align:center;
+  padding:7px 16px;
+  letter-spacing:.3px;
+}
+.topbar span{opacity:.9}
+
+/* ---------- 页眉 ---------- */
+.site-header{
+  position:sticky;top:0;z-index:50;
+  background:rgba(255,255,255,.92);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line);
+}
+.header-inner{
+  display:flex;align-items:center;gap:28px;
+  height:66px;
+}
+.logo{
+  display:flex;align-items:center;gap:9px;
+  font-weight:800;font-size:21px;
+  letter-spacing:.5px;
+  white-space:nowrap;
+}
+.logo-mark{
+  width:34px;height:34px;border-radius:11px;
+  background:linear-gradient(135deg,var(--pink),var(--purple));
+  display:flex;align-items:center;justify-content:center;
+  color:#fff;font-size:17px;
+  box-shadow:0 4px 12px rgba(232,74,127,.35);
+}
+.logo b{color:var(--pink-deep)}
+.logo i{font-style:normal;color:var(--purple)}
+.main-nav{display:flex;gap:4px;flex:1;flex-wrap:wrap}
+.main-nav a{
+  padding:8px 14px;border-radius:10px;
+  font-size:14.5px;color:var(--ink-2);
+  transition:.2s;
+}
+.main-nav a:hover{background:var(--pink-soft);color:var(--pink-deep)}
+.header-actions{display:flex;align-items:center;gap:10px}
+.search-box{
+  display:flex;align-items:center;gap:6px;
+  background:#f6f3f9;border:1px solid var(--line);
+  border-radius:999px;padding:7px 14px;
+  transition:.2s;
+}
+.search-box:focus-within{border-color:var(--pink);background:#fff;box-shadow:0 0 0 3px rgba(255,107,157,.12)}
+.search-box input{
+  border:none;background:transparent;outline:none;
+  font-size:14px;width:130px;color:var(--ink);
+}
+.search-box input::placeholder{color:var(--ink-3)}
+.search-box button{
+  border:none;background:transparent;cursor:pointer;
+  color:var(--pink-deep);font-size:15px;line-height:1;
+}
+.btn-primary{
+  background:linear-gradient(135deg,var(--pink),var(--purple));
+  color:#fff;border:none;cursor:pointer;
+  padding:9px 20px;border-radius:999px;
+  font-size:14px;font-weight:600;
+  box-shadow:0 4px 14px rgba(232,74,127,.3);
+  transition:.2s;
+}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 6px 18px rgba(232,74,127,.4)}
+.menu-toggle{display:none;background:none;border:none;font-size:22px;cursor:pointer;color:var(--ink)}
+
+/* ---------- 首屏 Hero ---------- */
+.hero{
+  position:relative;overflow:hidden;
+  background:
+    radial-gradient(900px 420px at 88% -10%,rgba(139,92,246,.20),transparent 62%),
+    radial-gradient(760px 380px at 4% 8%,rgba(255,107,157,.22),transparent 60%),
+    linear-gradient(180deg,#fff7fb 0%,#fdfbfe 100%);
+  padding:56px 0 48px;
+  border-bottom:1px solid var(--line);
+}
+.hero::after{
+  content:"";position:absolute;right:-70px;top:-70px;
+  width:280px;height:280px;border-radius:50%;
+  background:radial-gradient(circle,rgba(56,189,248,.18),transparent 70%);
+}
+.hero-grid{
+  display:grid;grid-template-columns:1.15fr .85fr;
+  gap:44px;align-items:center;position:relative;z-index:2;
+}
+.hero-tag{
+  display:inline-flex;align-items:center;gap:7px;
+  background:#fff;border:1px solid var(--line);
+  color:var(--pink-deep);font-size:13px;font-weight:600;
+  padding:6px 14px;border-radius:999px;
+  box-shadow:var(--shadow);margin-bottom:18px;
+}
+.hero-tag .dot{width:7px;height:7px;border-radius:50%;background:var(--pink);animation:pulse 1.8s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+.hero h1{
+  font-size:40px;line-height:1.28;
+  font-weight:800;letter-spacing:.5px;margin-bottom:16px;
+}
+.hero h1 em{
+  font-style:normal;
+  background:linear-gradient(120deg,var(--pink-deep),var(--purple));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.hero-lead{
+  font-size:16px;color:var(--ink-2);
+  max-width:560px;margin-bottom:26px;
+}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:30px}
+.btn-ghost{
+  border:1.5px solid var(--line);background:#fff;
+  color:var(--ink-2);padding:10px 22px;border-radius:999px;
+  font-size:14px;font-weight:600;cursor:pointer;transition:.2s;
+}
+.btn-ghost:hover{border-color:var(--pink);color:var(--pink-deep);background:var(--pink-soft)}
+.hero-stats{display:flex;gap:34px;flex-wrap:wrap}
+.hero-stats div strong{
+  display:block;font-size:22px;font-weight:800;
+  color:var(--pink-deep);line-height:1.2;
+}
+.hero-stats div span{font-size:13px;color:var(--ink-3)}
+.hero-panel{
+  background:#fff;border:1px solid var(--line);
+  border-radius:22px;padding:22px;
+  box-shadow:0 18px 44px rgba(139,92,246,.12);
+}
+.hero-panel h3{font-size:15px;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.hero-panel h3::before{content:"";width:4px;height:15px;border-radius:3px;background:linear-gradient(var(--pink),var(--purple))}
+.slot-list li{
+  display:flex;align-items:center;gap:12px;
+  padding:10px 0;border-bottom:1px dashed var(--line);
+}
+.slot-list li:last-child{border-bottom:none}
+.slot-time{
+  font-size:12px;font-weight:700;color:#fff;
+  background:linear-gradient(135deg,var(--pink),var(--purple));
+  border-radius:8px;padding:4px 9px;min-width:56px;text-align:center;
+}
+.slot-list .slot-name{font-size:14px;font-weight:600;flex:1}
+.slot-list .slot-tag{font-size:12px;color:var(--ink-3)}
+
+/* ---------- 通用区块 ---------- */
+.section{padding:52px 0}
+.section-head{
+  display:flex;align-items:flex-end;justify-content:space-between;
+  gap:20px;margin-bottom:26px;flex-wrap:wrap;
+}
+.section-head h2{
+  font-size:25px;font-weight:800;letter-spacing:.4px;
+  display:flex;align-items:center;gap:11px;
+}
+.section-head h2::before{
+  content:"";width:6px;height:24px;border-radius:4px;
+  background:linear-gradient(var(--pink),var(--purple));
+}
+.section-head p{font-size:14px;color:var(--ink-3);max-width:620px;margin-top:6px}
+.more-link{font-size:14px;color:var(--pink-deep);font-weight:600;white-space:nowrap}
+.more-link:hover{text-decoration:underline}
+
+/* ---------- 分类导航 ---------- */
+.cat-grid{
+  display:grid;grid-template-columns:repeat(6,1fr);gap:14px;
+}
+.cat-card{
+  background:var(--card);border:1px solid var(--line);
+  border-radius:var(--radius);padding:18px 14px;text-align:center;
+  transition:.25s;cursor:pointer;
+}
+.cat-card:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:#f3d9e6}
+.cat-ico{
+  width:44px;height:44px;margin:0 auto 10px;border-radius:14px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:20px;
+}
+.cat-card strong{display:block;font-size:14.5px;margin-bottom:3px}
+.cat-card span{font-size:12px;color:var(--ink-3)}
+.c1{background:#ffeef5;color:#e84a7f}
+.c2{background:#eef2ff;color:#6366f1}
+.c3{background:#eafaf1;color:#16a34a}
+.c4{background:#fff7e6;color:#d97706}
+.c5{background:#eaf7ff;color:#0284c7}
+.c6{background:#f5f0ff;color:#8b5cf6}
+
+/* ---------- 番剧卡片 ---------- */
+.anime-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:20px;
+}
+.anime-card{
+  background:var(--card);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden;
+  transition:.25s;display:flex;flex-direction:column;
+}
+.anime-card:hover{transform:translateY(-5px);box-shadow:0 14px 34px rgba(139,92,246,.14);border-color:#f3d9e6}
+.anime-cover{
+  height:132px;position:relative;
+  display:flex;align-items:center;justify-content:center;
+  font-size:34px;color:#fff;letter-spacing:2px;font-weight:800;
+}
+.anime-cover .badge{
+  position:absolute;top:10px;left:10px;
+  background:rgba(0,0,0,.42);color:#fff;
+  font-size:11.5px;padding:3px 9px;border-radius:999px;
+  backdrop-filter:blur(4px);
+}
+.anime-cover .score{
+  position:absolute;bottom:10px;right:10px;
+  background:#fff;color:var(--pink-deep);
+  font-size:12px;font-weight:800;padding:3px 9px;border-radius:999px;
+}
+.anime-body{padding:14px 15px 16px;flex:1;display:flex;flex-direction:column}
+.anime-body h3{font-size:15.5px;font-weight:700;margin-bottom:6px}
+.anime-body p{font-size:13px;color:var(--ink-3);line-height:1.6;flex:1}
+.anime-meta{
+  display:flex;justify-content:space-between;align-items:center;
+  margin-top:12px;font-size:12.5px;color:var(--ink-3);
+}
+.anime-meta .ep{color:var(--purple);font-weight:700}
+
+/* ---------- 更新表 ---------- */
+.update-layout{display:grid;grid-template-columns:1.6fr 1fr;gap:26px;align-items:start}
+.update-table{
+  background:#fff;border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden;
+}
+.update-row{
+  display:grid;grid-template-columns:62px 1fr 92px 108px;
+  gap:12px;align-items:center;
+  padding:13px 18px;border-bottom:1px solid #faf5f9;
+  font-size:14px;transition:.2s;
+}
+.update-row:last-child{border-bottom:none}
+.update-row:hover{background:var(--pink-soft)}
+.update-row .u-time{font-size:12.5px;color:var(--ink-3)}
+.update-row .u-name{font-weight:600}
+.update-row .u-name small{display:block;font-weight:400;color:var(--ink-3);font-size:12px;margin-top:2px}
+.u-pill{
+  font-size:12px;padding:3px 10px;border-radius:999px;text-align:center;
+  background:var(--purple-soft);color:var(--purple);font-weight:600;
+}
+.u-pill.new{background:#ffeef5;color:var(--pink-deep)}
+.u-ep{font-size:12.5px;color:var(--ink-3);text-align:right}
+
+.side-card{
+  background:#fff;border:1px solid var(--line);
+  border-radius:var(--radius);padding:20px;
+}
+.side-card + .side-card{margin-top:20px}
+.side-card h3{font-size:16px;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.side-card h3::before{content:"";width:4px;height:14px;border-radius:3px;background:linear-gradient(var(--pink),var(--purple))}
+.rank-list li{
+  display:flex;align-items:center;gap:12px;
+  padding:9px 0;border-bottom:1px dashed var(--line);font-size:14px;
+}
+.rank-list li:last-child{border-bottom:none}
+.rank-no{
+  width:22px;height:22px;border-radius:7px;flex:0 0 auto;
+  display:flex;align-items:center;justify-content:center;
+  font-size:12px;font-weight:800;background:#f4f1f7;color:var(--ink-3);
+}
+.rank-list li:nth-child(1) .rank-no{background:linear-gradient(135deg,#ffb020,#ff7a45);color:#fff}
+.rank-list li:nth-child(2) .rank-no{background:linear-gradient(135deg,#9aa7bd,#6b7a94);color:#fff}
+.rank-list li:nth-child(3) .rank-no{background:linear-gradient(135deg,#e8a97e,#c97b4a);color:#fff}
+.rank-list .r-name{flex:1;font-weight:600}
+.rank-list .r-hot{font-size:12px;color:var(--ink-3)}
+
+.tip-box{
+  background:linear-gradient(135deg,#fff5f9,#f6f2ff);
+  border:1px dashed #f0d9e7;border-radius:var(--radius);
+  padding:18px;font-size:13.5px;color:var(--ink-2);
+}
+.tip-box strong{color:var(--pink-deep)}
+
+/* ---------- 观看指南 ---------- */
+.guide-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.guide-card{
+  background:#fff;border:1px solid var(--line);
+  border-radius:var(--radius);padding:24px 22px;transition:.25s;
+}
+.guide-card:hover{box-shadow:var(--shadow);transform:translateY(-3px)}
+.guide-num{
+  width:38px;height:38px;border-radius:12px;
+  background:linear-gradient(135deg,var(--pink),var(--purple));
+  color:#fff;font-weight:800;font-size:16px;
+  display:flex;align-items:center;justify-content:center;margin-bottom:14px;
+}
+.guide-card h3{font-size:16.5px;margin-bottom:9px}
+.guide-card p{font-size:14px;color:var(--ink-2)}
+.guide-card ul{margin-top:12px}
+.guide-card li{
+  font-size:13.5px;color:var(--ink-2);
+  padding-left:16px;position:relative;margin-bottom:6px;
+}
+.guide-card li::before{
+  content:"";position:absolute;left:0;top:9px;
+  width:6px;height:6px;border-radius:50%;
+  background:var(--pink);opacity:.7;
+}
+
+/* ---------- 类型速查 ---------- */
+.type-strip{
+  background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  padding:32px 0;
+}
+.type-tags{display:flex;flex-wrap:wrap;gap:11px}
+.type-tags a{
+  font-size:13.5px;padding:8px 17px;border-radius:999px;
+  background:#faf6fb;border:1px solid var(--line);color:var(--ink-2);
+  transition:.2s;
+}
+.type-tags a:hover{background:linear-gradient(135deg,var(--pink),var(--purple));color:#fff;border-color:transparent}
+
+/* ---------- FAQ ---------- */
+.faq-list{display:grid;gap:14px;max-width:900px}
+.faq-item{
+  background:#fff;border:1px solid var(--line);
+  border-radius:var(--radius);padding:6px 22px;
+}
+.faq-item summary{
+  cursor:pointer;list-style:none;
+  padding:16px 0;font-size:15.5px;font-weight:700;
+  display:flex;align-items:center;justify-content:space-between;gap:14px;
+}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary::after{
+  content:"+";font-size:20px;font-weight:400;color:var(--pink-deep);
+  transition:.2s;flex:0 0 auto;
+}
+.faq-item[open] summary::after{content:"−"}
+.faq-item p{
+  font-size:14px;color:var(--ink-2);
+  padding:0 0 18px;border-top:1px dashed var(--line);
+  padding-top:14px;
+}
+
+/* ---------- 页脚 ---------- */
+.site-footer{
+  background:#1f2233;color:#b9bdd0;
+  padding:50px 0 0;margin-top:20px;
+}
+.footer-grid{
+  display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:34px;
+  padding-bottom:36px;
+}
+.footer-brand .logo{color:#fff;margin-bottom:14px}
+.footer-brand p{font-size:13.5px;line-height:1.8;color:#8e93a8;max-width:300px}
+.footer-col h4{color:#fff;font-size:15px;margin-bottom:14px}
+.footer-col li{margin-bottom:9px}
+.footer-col a{font-size:13.5px;color:#9ba0b5;transition:.2s}
+.footer-col a:hover{color:var(--pink)}
+.footer-bottom{
+  border-top:1px solid #2c3047;
+  padding:18px 0;font-size:13px;color:#7b8095;
+  display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;
+}
+
+/* ---------- 响应式 ---------- */
+@media (max-width:1024px){
+  .cat-grid{grid-template-columns:repeat(3,1fr)}
+  .anime-grid{grid-template-columns:repeat(3,1fr)}
+  .hero h1{font-size:33px}
+  .hero-grid{grid-template-columns:1fr;gap:32px}
+  .update-layout{grid-template-columns:1fr}
+  .guide-grid{grid-template-columns:1fr 1fr}
+  .footer-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:760px){
+  .main-nav{
+    display:none;
+    position:absolute;top:66px;left:0;right:0;
+    background:#fff;flex-direction:column;
+    padding:12px 20px 18px;gap:2px;
+    border-bottom:1px solid var(--line);
+    box-shadow:0 12px 24px rgba(31,34,51,.08);
+  }
+  .main-nav.open{display:flex}
+  .menu-toggle{display:block;order:3}
+  .header-inner{gap:14px}
+  .search-box{display:none}
+  .header-actions .btn-primary{display:none}
+  .hero{padding:38px 0 34px}
+  .hero h1{font-size:28px}
+  .hero-stats{gap:22px}
+  .cat-grid{grid-template-columns:repeat(2,1fr)}
+  .anime-grid{grid-template-columns:repeat(2,1fr)}
+  .guide-grid{grid-template-columns:1fr}
+  .update-row{grid-template-columns:52px 1fr 84px;gap:10px;padding:12px 14px}
+  .update-row .u-ep{display:none}
+  .section{padding:38px 0}
+  .section-head h2{font-size:21px}
+  .footer-grid{grid-template-columns:1fr;gap:26px}
+}
+@media (max-width:420px){
+  .anime-grid{grid-template-columns:1fr}
+  .hero h1{font-size:25px}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <span>本站为动漫内容导航与推荐页面，收录信息以官方播出与正规平台为准。</span>
+</div>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a href="#" class="logo">
+      <span class="logo-mark">樱</span>
+      <span><b>樱花</b><i>动漫</i></span>
+    </a>
+    <nav class="main-nav" id="mainNav">
+      <a href="#hot">热门推荐</a>
+      <a href="#new">新番更新</a>
+      <a href="#rank">人气榜单</a>
+      <a href="#guide">观看指南</a>
+      <a href="#type">类型速查</a>
+      <a href="#faq">常见问题</a>
+    </nav>
+    <div class="header-actions">
+      <form class="search-box" onsubmit="return false;">
+        <input type="text" placeholder="搜索番剧名称或类型" aria-label="搜索番剧">
+        <button type="submit" aria-label="搜索">🔍</button>
+      </form>
+      <button class="btn-primary" type="button">番剧日历</button>
+      <button class="menu-toggle" id="menuToggle" aria-label="展开导航">☰</button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- 首屏 -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="hero-tag"><span class="dot"></span>新番季 · 每周更新追踪</span>
+        <h1>樱花动漫，<em>找番、追番、看懂番</em>的实用入口</h1>
+        <p class="hero-lead">
+          面对每季几十部新番，很多人真正困扰的不是“没有动画看”，而是不知道该看哪一部、在哪看、什么时候更新。
+          樱花动漫围绕番剧分类、更新节奏、口碑参考与观看方式整理内容，帮你用更少时间找到合口味的作品。
+        </p>
+        <div class="hero-actions">
+          <button class="btn-primary" type="button">查看本季新番</button>
+          <a href="#guide" class="btn-ghost">阅读观看指南</a>
+        </div>
+        <div class="hero-stats">
+          <div><strong>4 类</strong><span>按题材与受众划分</span></div>
+          <div><strong>7 天</strong><span>每周更新日历维度</span></div>
+          <div><strong>3 步</strong><span>选番决策流程</span></div>
+        </div>
+      </div>
+      <aside class="hero-panel">
+        <h3>本周更新提示</h3>
+        <ul class="slot-list">
+          <li><span class="slot-time">周一</span><span class="slot-name">热血冒险类</span><span class="slot-tag">剧情推进</span></li>
+          <li><span class="slot-time">周三</span><span class="slot-name">日常治愈类</span><span class="slot-tag">轻松单元</span></li>
+          <li><span class="slot-time">周五</span><span class="slot-name">恋爱青春类</span><span class="slot-tag">情感线</span></li>
+          <li><span class="slot-time">周六</span><span class="slot-name">奇幻战斗类</span><span class="slot-tag">高能集</span></li>
+          <li><span class="slot-time">周日</span><span class="slot-name">经典回顾档</span><span class="slot-tag">补番向</span></li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <!-- 分类 -->
+  <section class="section" id="type">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <h2>按题材快速定位</h2>
+          <p>不知道看什么时，先确定题材方向，比盲目刷列表效率高得多。</p>
+        </div>
+      </div>
+      <div class="cat-grid">
+        <div class="cat-card"><div class="cat-ico c1">🔥</div><strong>热血战斗</strong><span>成长与对抗</span></div>
+        <div class="cat-card"><div class="cat-ico c2">🌸</div><strong>恋爱青春</strong><span>校园与情感</span></div>
+        <div class="cat-card"><div class="cat-ico c3">🍃</div><strong>日常治愈</strong><span>轻松慢节奏</span></div>
+        <div class="cat-card"><div class="cat-ico c4">✨</div><strong>奇幻异世界</strong><span>世界观设定</span></div>
+        <div class="cat-card"><div class="cat-ico c5">🔍</div><strong>悬疑推理</strong><span>逻辑与反转</span></div>
+        <div class="cat-card"><div class="cat-ico c6">🎬</div><strong>剧场动画</strong><span>独立长篇</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 热门推荐 -->
+  <section class="section" id="hot" style="padding-top:8px;">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <h2>值得优先了解的作品方向</h2>
+          <p>以下按题材与观看门槛整理，帮助你判断一部作品是否适合自己，而不是简单罗列名称。</p>
+        </div>
+        <a href="#rank" class="more-link">查看人气榜单 →</a>
+      </div>
+      <div class="anime-grid">
+        <article class="anime-card">
+          <div class="anime-cover" style="background:linear-gradient(135deg,#ff8fb1,#e84a7f)">热血<span class="badge">长篇连载</span><span class="score">适合追更</span></div>
+          <div class="anime-body">
+            <h3>成长型热血番</h3>
+            <p>主线围绕主角从弱小到强大的过程展开，适合能接受长期追更、喜欢群像与战斗设计的观众。</p>
+            <div class="anime-meta"><span>周更 · 单集 24 分钟</span><span class="ep">建议从第 1 集</span></div>
+          </div>
+        </article>
+        <article class="anime-card">
+          <div class="anime-cover" style="background:linear-gradient(135deg,#a78bfa,#7c3aed)">奇幻<span class="badge">季番</span><span class="score">设定向</span></div>
+          <div class="anime-body">
+            <h3>异世界设定番</h3>
+            <p>看点在于世界观规则与角色关系，前两集信息量较大，建议连续观看以便理解设定。</p>
+            <div class="anime-meta"><span>季番 · 12 集左右</span><span class="ep">前 2 集关键</span></div>
+          </div>
+        </article>
+        <article class="anime-card">
+          <div class="anime-cover" style="background:linear-gradient(135deg,#7dd3fc,#0284c7)">治愈<span class="badge">单元剧</span><span class="score">零门槛</span></div>
+          <div class="anime-body">
+            <h3>日常治愈番</h3>
+            <p>每集相对独立，随时可看随时可停，适合碎片时间放松，也适合作为入门动画的选择。</p>
+            <div class="anime-meta"><span>周更 · 单集 23 分钟</span><span class="ep">任意集可看</span></div>
+          </div>
+        </article>
+        <article class="anime-card">
+          <div class="anime-cover" style="background:linear-gradient(135deg,#fbbf24,#f97316)">青春<span class="badge">季番</span><span class="score">情感向</span></div>
+          <div class="anime-body">
+            <h3>校园恋爱番</h3>
+            <p>以人物关系推进为核心，节奏偏慢，适合喜欢细腻描写而非强情节冲突的观众。</p>
+            <div class="anime-meta"><span>周更 · 12 至 13 集</span><span class="ep">中期转折</span></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 更新 + 榜单 -->
+  <section class="section" id="new" style="padding-top:8px;">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <h2>更新节奏与本周动态</h2>
+          <p>追番最怕记不住更新时间，用固定节奏表管理，比临时搜索更省事。</p>
+        </div>
+      </div>
+      <div class="update-layout">
+        <div class="update-table">
+          <div class="update-row">
+            <span class="u-time">周一</span>
+            <span class="u-name">热血冒险类作品<small>主线推进，适合连续追</small></span>
+            <span class="u-pill new">新集</span>
+            <span class="u-ep">第 8 集</span>
+          </div>
+          <div class="update-row">
+            <span class="u-time">周二</span>
+            <span class="u-name">悬疑推理类作品<small>信息密度高，建议不看剧透</small></span>
+            <span class="u-pill">更新</span>
+            <span class="u-ep">第 6 集</span>
+          </div>
+          <div class="update-row">
+            <span class="u-time">周三</span>
+            <span class="u-name">日常治愈类作品<small>单元结构，随时可补</small></span>
+            <span class="u-pill">更新</span>
+            <span class="u-ep">第 10 集</span>
+          </div>
+          <div class="update-row">
+            <span class="u-time">周五</span>
+            <span class="u-name">校园恋爱类作品<small>情感线进入关键阶段</small></span>
+            <span class="u-pill new">新集</span>
+            <span class="u-ep">第 9 集</span>
+          </div>
+          <div class="update-row">
+            <span class="u-time">周六</span>
+            <span class="u-name">奇幻战斗类作品<small>高能集，建议提前补前情</small></span>
+            <span class="u-pill new">新集</span>
+            <span class="u-ep">第 11 集</span>
+          </div>
+          <div class="update-row">
+            <span class="u-time">周日</span>
+            <span class="u-name">经典回顾档<small>补番向，适合周末整块时间</small></span>
+            <span class="u-pill">回顾</span>
+            <span class="u-ep">合集</span>
+          </div>
+        </div>
+        <div>
+          <div class="side-card" id="rank">
+            <h3>本周关注度参考</h3>
+            <ul class="rank-list">
+              <li><span class="rank-no">1</span><span class="r-name">奇幻战斗类作品</span><span class="r-hot">讨论集中</span></li>
+              <li><span class="rank-no">2</span><span class="r-name">校园恋爱类作品</span><span class="r-hot">情感线热度</span></li>
+              <li><span class="rank-no">3</span><span class="r-name">悬疑推理类作品</span><span class="r-hot">剧情反转</span></li>
+              <li><span class="rank-no">4</span><span class="r-name">热血冒险类作品</span><span class="r-hot">长期稳定</span></li>
+              <li><span class="rank-no">5</span><span class="r-name">日常治愈类作品</span><span class="r-hot">口碑平稳</span></li>
+            </ul>
+          </div>
+          <div class="side-card">
+            <h3>追番小提醒</h3>
+            <div class="tip-box">
+              同一部作品在不同平台的<strong>更新速度与字幕版本可能不同</strong>，
+              追更前先确认自己使用的平台更新规律，避免因进度差异被剧透。
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 类型标签 -->
+  <section class="type-strip">
+    <div class="wrap">
+      <div class="section-head" style="margin-bottom:16px;">
+        <div><h2 style="font-size:20px;">常见题材标签</h2></div>
+      </div>
+      <div class="type-tags">
+        <a href="#hot">热血</a><a href="#hot">战斗</a><a href="#hot">成长</a>
+        <a href="#hot">校园</a><a href="#hot">恋爱</a><a href="#hot">青春</a>
+        <a href="#hot">日常</a><a href="#hot">治愈</a><a href="#hot">搞笑</a>
+        <a href="#hot">奇幻</a><a href="#hot">异世界</a><a href="#hot">冒险</a>
+        <a href="#hot">悬疑</a><a href="#hot">推理</a><a href="#hot">科幻</a>
+        <a href="#hot">运动</a><a href="#hot">音乐</a><a href="#hot">历史</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 观看指南 -->
+  <section class="section" id="guide">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <h2>观看与选番指南</h2>
+          <p>把“看动画”拆成可执行的几步，能明显减少踩雷和浪费时间的情况。</p>
+        </div>
+      </div>
+      <div class="guide-grid">
+        <article class="guide-card">
+          <div class="guide-num">1</div>
+          <h3>先确定观看目的</h3>
+          <p>是放松、追剧情，还是想找有讨论度的作品？目的不同，适合的类型完全不同。</p>
+          <ul>
+            <li>放松优先：日常、治愈、搞笑</li>
+            <li>代入感优先：热血、成长、冒险</li>
+            <li>讨论度优先：当期新番与话题作</li>
+          </ul>
+        </article>
+        <article class="guide-card">
+          <div class="guide-num">2</div>
+          <h3>查看前几集口碑</h3>
+          <p>动画的前两到三集通常能反映作画水准、叙事节奏与改编方向，比只看简介可靠。</p>
+          <ul>
+            <li>关注节奏是否拖沓</li>
+            <li>留意角色动机是否清晰</li>
+            <li>区分原作评价与动画评价</li>
+          </ul>
+        </article>
+        <article class="guide-card">
+          <div class="guide-num">3</div>
+          <h3>确认观看渠道与进度</h3>
+          <p>选择正规授权平台观看，画质、字幕与更新稳定性更有保障，也能支持作品持续产出。</p>
+          <ul>
+            <li>确认是否为官方授权渠道</li>
+            <li>留意更新周期与集数安排</li>
+            <li>避免在来源不明的页面输入账号信息</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" id="faq" style="padding-top:8px;">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <h2>常见问题</h2>
+          <p>关于找番、追番与观看方式，被问得最多的几个问题。</p>
+        </div>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item" open>
+          <summary>新番和季番有什么区别？</summary>
+          <p>新番通常指当前播出季正在更新的作品；季番一般指按季度规划、集数集中在 12 至 13 集左右的作品。两者并不冲突，一部新番大多也是季番结构。长篇连载作品则可能跨多个季度持续更新。</p>
+        </details>
+        <details class="faq-item">
+          <summary>想补番应该按什么顺序看？</summary>
+          <p>如果是系列作品，建议按播出顺序观看，因为后续作品常包含前作设定与人物关系。如果是独立作品，按题材兴趣选择即可，不必追求所谓的“必看顺序”。</p>
+        </details>
+        <details class="faq-item">
+          <summary>怎样避免被剧透？</summary>
+          <p>追更期间尽量减少在社交平台搜索作品名，尤其是更新日当天。观看前先确认自己的进度与平台更新是否一致，避免因版本差异提前看到后续内容。</p>
+        </details>
+        <details class="faq-item">
+          <summary>动画和原作漫画、小说差别大吗？</summary>
+          <p>改编作品受篇幅限制，通常会调整节奏、删减支线或合并角色。有的改编会强化画面表现，有的则更贴近原作叙事。判断是否值得看，可以参考动画的制作阵容与前几集的实际表现。</p>
+        </details>
+        <details class="faq-item">
+          <summary>在哪里观看更合适？</summary>
+          <p>优先选择有正规授权的视频平台，画质、字幕与更新稳定性相对更有保障。对来源不明的页面，注意不要随意下载安装包或提交个人信息。</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">
+          <span class="logo-mark">樱</span>
+          <span style="color:#fff;"><b style="color:#ff8fb1;">樱花</b><i style="color:#c4b5fd;">动漫</i></span>
+        </div>
+        <p>围绕动漫作品整理题材分类、更新节奏、选番思路与观看建议，帮助观众更高效地找到适合自己的番剧。</p>
+      </div>
+      <div class="footer-col">
+        <h4>内容导航</h4>
+        <ul>
+          <li><a href="#hot">热门推荐</a></li>
+          <li><a href="#new">新番更新</a></li>
+          <li><a href="#rank">人气榜单</a></li>
+          <li><a href="#type">类型速查</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>观看参考</h4>
+        <ul>
+          <li><a href="#guide">选番三步法</a></li>
+          <li><a href="#guide">更新节奏管理</a></li>
+          <li><a href="#faq">常见问题</a></li>
+          <li><a href="#faq">补番顺序说明</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>题材分类</h4>
+        <ul>
+          <li><a href="#hot">热血与冒险</a></li>
+          <li><a href="#hot">日常与治愈</a></li>
+          <li><a href="#hot">恋爱与校园</a></li>
+          <li><a href="#hot">奇幻与科幻</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>本站内容为动漫题材导航与观看建议整理，具体播出信息请以官方渠道为准。</span>
+      <span>樱花动漫 · 内容导航页</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var toggle = document.getElementById('menuToggle');
+  var nav = document.getElementById('mainNav');
+  if(toggle && nav){
+    toggle.addEventListener('click', function(){
+      nav.classList.toggle('open');
+    });
+    nav.addEventListener('click', function(e){
+      if(e.target.tagName === 'A'){
+        nav.classList.remove('open');
+      }
+    });
+  }
+})();
+</script>
+
+</body>
+              </html>
