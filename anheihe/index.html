@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>暗黑核-暗黑破坏神玩家攻略与资料查询站</title>
+<meta name="description" content="暗黑核为暗黑破坏神系列玩家提供职业流派、装备词缀、赛季开荒、刷图路线与资料查询等实用内容，帮助新手快速入门、老手优化构筑。">
+<meta name="keywords" content="暗黑核,暗黑破坏神,暗黑4攻略,职业流派,装备词缀,赛季开荒,刷图路线">
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+<style>
+  :root{
+    --bg:#0d0b0a;
+    --bg-soft:#161311;
+    --panel:#1d1917;
+    --panel-2:#241f1c;
+    --line:#332b26;
+    --gold:#c9a227;
+    --gold-soft:#e0c15c;
+    --ember:#8c2b1b;
+    --text:#e8e2da;
+    --muted:#a1968b;
+    --radius:10px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:
+      radial-gradient(900px 420px at 12% -8%, rgba(140,43,27,.28), transparent 60%),
+      radial-gradient(700px 380px at 92% 4%, rgba(201,162,39,.14), transparent 62%),
+      var(--bg);
+    color:var(--text);
+    font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB",system-ui,sans-serif;
+    line-height:1.75;
+    font-size:16px;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  ul{margin:0;padding:0;list-style:none;}
+
+  .wrap{width:100%;max-width:1180px;margin:0 auto;padding:0 20px;}
+
+  /* ============ 顶部 ============ */
+  .site-header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(13,11,10,.9);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .header-inner{
+    display:flex;align-items:center;gap:22px;
+    min-height:64px;
+  }
+  .logo{
+    display:flex;align-items:center;gap:10px;
+    font-size:20px;font-weight:700;letter-spacing:2px;
+    white-space:nowrap;
+  }
+  .logo-mark{
+    width:30px;height:30px;flex:none;
+    border:2px solid var(--gold);
+    border-radius:6px;
+    display:grid;place-items:center;
+    color:var(--gold);
+    font-size:15px;font-weight:700;
+    transform:rotate(45deg);
+  }
+  .logo-mark span{transform:rotate(-45deg);}
+  .logo b{color:var(--gold-soft);}
+
+  .main-nav{
+    display:flex;align-items:center;gap:4px;
+    margin-left:auto;
+    flex-wrap:wrap;
+  }
+  .main-nav a{
+    padding:8px 13px;border-radius:6px;
+    font-size:14.5px;color:var(--muted);
+    transition:color .18s,background .18s;
+  }
+  .main-nav a:hover,.main-nav a.active{
+    color:var(--gold-soft);
+    background:rgba(201,162,39,.09);
+  }
+  .nav-toggle{
+    display:none;margin-left:auto;
+    background:none;border:1px solid var(--line);border-radius:6px;
+    color:var(--gold-soft);font-size:18px;line-height:1;
+    padding:6px 11px;cursor:pointer;
+  }
+
+  /* ============ 首屏 ============ */
+  .hero{
+    padding:56px 0 46px;
+    border-bottom:1px solid var(--line);
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1.35fr 1fr;
+    gap:38px;align-items:center;
+  }
+  .eyebrow{
+    display:inline-block;
+    font-size:12.5px;letter-spacing:3px;
+    color:var(--gold);
+    border:1px solid rgba(201,162,39,.42);
+    border-radius:999px;
+    padding:3px 14px;
+    margin-bottom:18px;
+  }
+  .hero h1{
+    font-size:38px;line-height:1.3;margin:0 0 16px;
+    letter-spacing:1px;
+  }
+  .hero h1 em{
+    font-style:normal;color:var(--gold-soft);
+  }
+  .hero p{
+    color:var(--muted);margin:0 0 24px;font-size:15.5px;
+    max-width:56ch;
+  }
+  .hero-actions{display:flex;gap:12px;flex-wrap:wrap;}
+  .btn{
+    display:inline-block;
+    padding:11px 24px;border-radius:8px;
+    font-size:15px;font-weight:600;
+    border:1px solid transparent;
+    transition:transform .16s,background .18s,border-color .18s;
+  }
+  .btn:hover{transform:translateY(-2px);}
+  .btn-primary{
+    background:linear-gradient(160deg,var(--gold-soft),var(--gold));
+    color:#1a1206;
+  }
+  .btn-ghost{
+    border-color:var(--line);
+    color:var(--text);
+    background:rgba(255,255,255,.02);
+  }
+  .btn-ghost:hover{border-color:var(--gold);color:var(--gold-soft);}
+
+  .hero-side{
+    background:linear-gradient(180deg,var(--panel),var(--bg-soft));
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:22px 22px 18px;
+  }
+  .hero-side h2{
+    font-size:15px;margin:0 0 14px;
+    color:var(--gold-soft);letter-spacing:1px;
+    display:flex;align-items:center;gap:8px;
+  }
+  .hero-side h2::before{
+    content:"";width:4px;height:15px;background:var(--ember);border-radius:2px;
+  }
+  .quick-list li{
+    display:flex;justify-content:space-between;gap:12px;
+    padding:9px 0;
+    border-bottom:1px dashed rgba(255,255,255,.06);
+    font-size:14.5px;
+  }
+  .quick-list li:last-child{border-bottom:0;}
+  .quick-list span{color:var(--muted);font-size:13px;flex:none;}
+
+  /* ============ 通用区块 ============ */
+  .section{padding:52px 0;border-bottom:1px solid var(--line);}
+  .section:last-of-type{border-bottom:0;}
+  .section-head{
+    display:flex;align-items:flex-end;justify-content:space-between;
+    gap:18px;margin-bottom:26px;flex-wrap:wrap;
+  }
+  .section-head h2{
+    font-size:24px;margin:0;letter-spacing:1px;
+  }
+  .section-head h2 small{
+    display:block;font-size:13px;font-weight:400;
+    color:var(--muted);letter-spacing:1px;margin-top:6px;
+  }
+  .section-head .more{
+    font-size:13.5px;color:var(--gold);border-bottom:1px solid rgba(201,162,39,.4);
+    padding-bottom:2px;
+  }
+  .section-head .more:hover{color:var(--gold-soft);}
+
+  /* ============ 职业流派卡 ============ */
+  .class-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(232px,1fr));
+    gap:18px;
+  }
+  .class-card{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:20px 18px;
+    transition:border-color .2s,transform .2s,background .2s;
+  }
+  .class-card:hover{
+    border-color:rgba(201,162,39,.55);
+    transform:translateY(-3px);
+    background:var(--panel-2);
+  }
+  .class-tag{
+    display:inline-block;font-size:12px;
+    color:var(--ember);
+    background:rgba(140,43,27,.16);
+    border:1px solid rgba(140,43,27,.42);
+    border-radius:4px;padding:1px 8px;margin-bottom:12px;
+  }
+  .class-card h3{margin:0 0 10px;font-size:17px;}
+  .class-card p{margin:0;font-size:14px;color:var(--muted);}
+
+  /* ============ 攻略列表 ============ */
+  .split{
+    display:grid;
+    grid-template-columns:1.6fr 1fr;
+    gap:34px;
+    align-items:start;
+  }
+  .article-list{display:flex;flex-direction:column;gap:2px;}
+  .article-item{
+    display:flex;gap:16px;align-items:flex-start;
+    padding:16px 0;
+    border-bottom:1px dashed rgba(255,255,255,.07);
+  }
+  .article-item:last-child{border-bottom:0;}
+  .article-item .idx{
+    flex:none;width:30px;height:30px;border-radius:6px;
+    display:grid;place-items:center;
+    font-size:13px;font-weight:700;
+    background:rgba(201,162,39,.1);
+    color:var(--gold);
+    border:1px solid rgba(201,162,39,.3);
+  }
+  .article-item h3{
+    margin:0 0 6px;font-size:16.5px;line-height:1.5;
+  }
+  .article-item h3 a:hover{color:var(--gold-soft);}
+  .article-item p{margin:0 0 8px;font-size:14px;color:var(--muted);}
+  .meta{
+    font-size:12.5px;color:#7d7269;display:flex;gap:14px;flex-wrap:wrap;
+  }
+
+  /* ============ 侧栏 ============ */
+  .side-box{
+    background:var(--bg-soft);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:18px 18px 14px;
+    margin-bottom:20px;
+  }
+  .side-box h3{
+    font-size:15px;margin:0 0 12px;color:var(--gold-soft);
+    letter-spacing:1px;
+  }
+  .side-box ul li{
+    font-size:14px;color:var(--muted);
+    padding:7px 0;
+    border-bottom:1px dashed rgba(255,255,255,.06);
+  }
+  .side-box ul li:last-child{border-bottom:0;}
+  .side-box ul li a:hover{color:var(--gold-soft);}
+  .side-box .num{
+    display:inline-block;width:20px;color:var(--ember);font-weight:700;
+  }
+
+  /* ============ 词缀/资料表 ============ */
+  .table-scroll{overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius);}
+  table{
+    width:100%;border-collapse:collapse;min-width:620px;
+    font-size:14.5px;
+  }
+  thead th{
+    background:rgba(201,162,39,.08);
+    color:var(--gold-soft);
+    text-align:left;font-weight:600;
+    padding:12px 16px;
+    border-bottom:1px solid var(--line);
+    white-space:nowrap;
+  }
+  tbody td{
+    padding:12px 16px;
+    border-bottom:1px solid rgba(255,255,255,.05);
+    color:var(--muted);
+  }
+  tbody tr:last-child td{border-bottom:0;}
+  tbody tr:hover td{background:rgba(255,255,255,.02);color:var(--text);}
+  tbody td strong{color:var(--text);font-weight:600;}
+
+  /* ============ 开荒步骤 ============ */
+  .steps{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+    gap:18px;
+  }
+  .step{
+    position:relative;
+    background:linear-gradient(180deg,var(--panel),var(--bg-soft));
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:22px 18px 18px;
+  }
+  .step .no{
+    position:absolute;top:-13px;left:18px;
+    background:var(--ember);
+    color:#fff;font-size:12.5px;font-weight:700;
+    padding:2px 10px;border-radius:4px;
+    letter-spacing:1px;
+  }
+  .step h3{margin:8px 0 8px;font-size:16px;}
+  .step p{margin:0;font-size:14px;color:var(--muted);}
+
+  /* ============ 常见问题 ============ */
+  .faq{display:flex;flex-direction:column;gap:12px;}
+  .faq details{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:0 18px;
+    transition:border-color .2s;
+  }
+  .faq details[open]{border-color:rgba(201,162,39,.5);}
+  .faq summary{
+    cursor:pointer;
+    list-style:none;
+    padding:15px 0;
+    font-size:15.5px;font-weight:600;
+    display:flex;justify-content:space-between;gap:14px;align-items:center;
+  }
+  .faq summary::-webkit-details-marker{display:none;}
+  .faq summary::after{
+    content:"+";color:var(--gold);font-size:19px;font-weight:400;flex:none;
+  }
+  .faq details[open] summary::after{content:"–";}
+  .faq .answer{
+    padding:0 0 16px;
+    font-size:14.5px;color:var(--muted);
+    border-top:1px dashed rgba(255,255,255,.07);
+    padding-top:14px;
+  }
+
+  /* ============ 页脚 ============ */
+  .site-footer{
+    background:var(--bg-soft);
+    border-top:1px solid var(--line);
+    padding:38px 0 26px;
+    margin-top:10px;
+  }
+  .footer-grid{
+    display:grid;
+    grid-template-columns:1.4fr 1fr 1fr;
+    gap:30px;
+    margin-bottom:26px;
+  }
+  .footer-grid h4{
+    font-size:14.5px;margin:0 0 12px;color:var(--gold-soft);
+    letter-spacing:1px;
+  }
+  .footer-grid p{font-size:13.5px;color:var(--muted);margin:0 0 10px;}
+  .footer-grid ul li{font-size:13.5px;color:var(--muted);padding:4px 0;}
+  .footer-grid ul li a:hover{color:var(--gold-soft);}
+  .footer-bottom{
+    border-top:1px solid var(--line);
+    padding-top:18px;
+    font-size:13px;color:#7d7269;
+    display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;
+  }
+
+  /* ============ 响应式 ============ */
+  @media (max-width:960px){
+    .hero-grid{grid-template-columns:1fr;}
+    .split{grid-template-columns:1fr;}
+    .hero h1{font-size:31px;}
+    .footer-grid{grid-template-columns:1fr 1fr;}
+  }
+  @media (max-width:720px){
+    .main-nav{
+      display:none;
+      position:absolute;top:64px;left:0;right:0;
+      flex-direction:column;align-items:stretch;
+      background:rgba(13,11,10,.98);
+      border-bottom:1px solid var(--line);
+      padding:8px 14px 14px;
+      gap:2px;
+    }
+    .main-nav.open{display:flex;}
+    .main-nav a{padding:11px 12px;}
+    .nav-toggle{display:block;}
+    .header-inner{position:relative;}
+    .hero{padding:40px 0 34px;}
+    .hero h1{font-size:26px;}
+    .section{padding:40px 0;}
+    .section-head h2{font-size:20px;}
+    .footer-grid{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="logo" href="#top">
+      <span class="logo-mark"><span>暗</span></span>
+      暗黑<b>核</b>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="展开导航">☰</button>
+    <nav class="main-nav" id="mainNav">
+      <a href="#classes" class="active">职业流派</a>
+      <a href="#guides">攻略中心</a>
+      <a href="#affix">词缀资料</a>
+      <a href="#route">开荒路线</a>
+      <a href="#faq">常见问题</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- 首屏 -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">暗黑破坏神 · 玩家资料站</span>
+        <h1>暗黑核：把职业流派、装备词缀与赛季开荒<em>理清楚</em></h1>
+        <p>暗黑核面向《暗黑破坏神》系列玩家，整理各职业主流流派的构筑思路、关键装备与词缀优先级，并给出赛季开荒的推进顺序与刷图路线参考。无论你是刚通关剧情的新人，还是准备冲层的老玩家，都可以先从这里找到方向，再回到游戏里验证。</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#classes">查看职业流派</a>
+          <a class="btn btn-ghost" href="#route">赛季开荒路线</a>
+        </div>
+      </div>
+      <aside class="hero-side">
+        <h2>本站能帮你解决什么</h2>
+        <ul class="quick-list">
+          <li>选职业与定流派<span>入门第一问</span></li>
+          <li>装备词缀取舍<span>伤害从哪来</span></li>
+          <li>赛季开荒顺序<span>少走弯路</span></li>
+          <li>刷图与farm路线<span>效率提升</span></li>
+          <li>常见误区排查<span>避免白练</span></li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <!-- 职业流派 -->
+  <section class="section" id="classes">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>职业与主流流派<small>先确定方向，再谈细节优化</small></h2>
+        <a class="more" href="#guides">查看配套攻略 →</a>
+      </div>
+      <div class="class-grid">
+        <article class="class-card">
+          <span class="class-tag">近战 · 力量</span>
+          <h3>野蛮人</h3>
+          <p>以高生命与近身爆发见长，流派多围绕怒气循环与范围伤害展开，适合喜欢正面推进、操作节奏直接的玩家。</p>
+        </article>
+        <article class="class-card">
+          <span class="class-tag">远程 · 敏捷</span>
+          <h3>游侠</h3>
+          <p>机动性强，可走远程射击或近身突进两条路线。对走位与技能衔接有一定要求，成型后清图节奏流畅。</p>
+        </article>
+        <article class="class-card">
+          <span class="class-tag">法术 · 智力</span>
+          <h3>法师</h3>
+          <p>依靠元素技能输出，范围清怪能力突出。需要关注资源回复与技能冷却，装备词缀搭配对体验影响明显。</p>
+        </article>
+        <article class="class-card">
+          <span class="class-tag">召唤 · 暗影</span>
+          <h3>死灵法师</h3>
+          <p>可走召唤、骨系或暗影持续伤害方向。玩法差异较大，建议先明确自己想打输出还是靠召唤物承伤。</p>
+        </article>
+        <article class="class-card">
+          <span class="class-tag">自然 · 变形</span>
+          <h3>德鲁伊</h3>
+          <p>兼具变形近战与自然法术，构筑跨度大。前期过渡相对平缓，中后期依赖关键装备才能发挥强度。</p>
+        </article>
+        <article class="class-card">
+          <span class="class-tag">灵能 · 防御</span>
+          <h3>灵巫</h3>
+          <p>以灵能技能与防护机制为核心，适合偏好稳健推进、边打边控场的玩家，构筑方向仍在持续演进中。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 攻略中心 + 侧栏 -->
+  <section class="section" id="guides">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>攻略中心<small>从入门到冲层的实用内容</small></h2>
+        <a class="more" href="#affix">查看词缀资料 →</a>
+      </div>
+      <div class="split">
+        <div class="article-list">
+          <article class="article-item">
+            <span class="idx">01</span>
+            <div>
+              <h3><a href="#guides">新号第一周该做什么：从剧情到世界层级的推进节奏</a></h3>
+              <p>先推进主线解锁核心系统，再逐步提高世界层级。等级、装备与难度三者需要匹配，盲目拉高难度反而拖慢效率。</p>
+              <div class="meta"><span>入门指南</span><span>约 6 分钟阅读</span></div>
+            </div>
+          </article>
+          <article class="article-item">
+            <span class="idx">02</span>
+            <div>
+              <h3><a href="#guides">流派构筑的基本逻辑：主输出、增伤、生存如何分配</a></h3>
+              <p>一个能打的构筑通常要回答三个问题：伤害从哪来、资源怎么循环、被打时靠什么活下来。理清顺序再堆装备。</p>
+              <div class="meta"><span>构筑思路</span><span>约 8 分钟阅读</span></div>
+            </div>
+          </article>
+          <article class="article-item">
+            <span class="idx">03</span>
+            <div>
+              <h3><a href="#guides">赛季开荒与永久角色有什么区别，值不值得重开</a></h3>
+              <p>赛季通常带有专属机制与奖励，角色进度独立。是否重开取决于你更看重新鲜玩法还是既有积累。</p>
+              <div class="meta"><span>赛季说明</span><span>约 5 分钟阅读</span></div>
+            </div>
+          </article>
+          <article class="article-item">
+            <span class="idx">04</span>
+            <div>
+              <h3><a href="#guides">装备该留还是该拆：判断一件装备有没有价值的四个角度</a></h3>
+              <p>看基础属性是否契合流派、看关键增伤词缀是否到位、看是否可升级强化、看是否有替代品，四项过筛后再决定。</p>
+              <div class="meta"><span>装备管理</span><span>约 7 分钟阅读</span></div>
+            </div>
+          </article>
+          <article class="article-item">
+            <span class="idx">05</span>
+            <div>
+              <h3><a href="#guides">伤害打不出来的排查顺序：先看循环，再看词缀</a></h3>
+              <p>很多“伤害低”的问题其实出在技能循环断裂或增伤条件未触发，而不是装备不够好。按顺序排查能省下大量时间。</p>
+              <div class="meta"><span>进阶优化</span><span>约 9 分钟阅读</span></div>
+            </div>
+          </article>
+        </div>
+
+        <aside>
+          <div class="side-box">
+            <h3>热门查阅</h3>
+            <ul>
+              <li><span class="num">1</span><a href="#route">赛季开荒推进顺序</a></li>
+              <li><span class="num">2</span><a href="#affix">核心增伤词缀优先级</a></li>
+              <li><span class="num">3</span><a href="#classes">职业强度与上手难度</a></li>
+              <li><span class="num">4</span><a href="#guides">装备取舍判断标准</a></li>
+              <li><span class="num">5</span><a href="#faq">常见误区与自查清单</a></li>
+            </ul>
+          </div>
+          <div class="side-box">
+            <h3>查阅提示</h3>
+            <p style="font-size:14px;color:var(--muted);margin:0;">
+              游戏版本更新会调整技能数值与机制，本站内容以思路和判断方法为主。具体数值请以你当前版本的官方说明与游戏内实际效果为准。
+            </p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- 词缀资料 -->
+  <section class="section" id="affix">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>装备词缀与属性资料<small>理解属性之间的优先级关系</small></h2>
+      </div>
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>属性类别</th>
+              <th>作用方向</th>
+              <th>常见取舍思路</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>主属性</strong></td>
+              <td>提升技能基础伤害与部分防御收益</td>
+              <td>多数流派的基础盘，通常优先保证基础数值不落后</td>
+            </tr>
+            <tr>
+              <td><strong>暴击几率 / 暴击伤害</strong></td>
+              <td>放大单次爆发伤害</td>
+              <td>两者需搭配使用，只堆其一会让收益明显下降</td>
+            </tr>
+            <tr>
+              <td><strong>攻击速度</strong></td>
+              <td>提高出手频率与资源循环速度</td>
+              <td>对依赖触发或资源回复的流派价值更高</td>
+            </tr>
+            <tr>
+              <td><strong>技能等级加成</strong></td>
+              <td>直接提升指定技能效果</td>
+              <td>主输出技能的相关加成通常优先级靠前</td>
+            </tr>
+            <tr>
+              <td><strong>元素 / 类型增伤</strong></td>
+              <td>针对特定伤害类型加成</td>
+              <td>需与自身主要输出手段匹配，错配等于无效</td>
+            </tr>
+            <tr>
+              <td><strong>生命与减伤</strong></td>
+              <td>提高容错与生存能力</td>
+              <td>冲高层或近战流派建议留出足够防御空间</td>
+            </tr>
+            <tr>
+              <td><strong>资源回复 / 冷却缩减</strong></td>
+              <td>维持技能循环不断档</td>
+              <td>循环不顺时优先补，比单纯堆伤害更有效</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:13.5px;color:#7d7269;margin:14px 0 0;">
+        说明：以上为通用判断框架，不同职业与流派的权重差异较大，实际搭配请结合自身技能组合与当前版本环境调整。
+      </p>
+    </div>
+  </section>
+
+  <!-- 开荒路线 -->
+  <section class="section" id="route">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>赛季开荒推进路线<small>按阶段拆解，减少无效操作</small></h2>
+      </div>
+      <div class="steps">
+        <article class="step">
+          <span class="no">阶段一</span>
+          <h3>解锁核心系统</h3>
+          <p>优先推进主线任务，把关键功能与地图区域打开。此时不必纠结装备，能打就打，等级提升带来的收益更直接。</p>
+        </article>
+        <article class="step">
+          <span class="no">阶段二</span>
+          <h3>确定流派方向</h3>
+          <p>根据已获得的关键装备或技能手感，选定一到两个主攻方向。方向定得早，后续掉落才有筛选标准。</p>
+        </article>
+        <article class="step">
+          <span class="no">阶段三</span>
+          <h3>补齐循环与生存</h3>
+          <p>先让技能循环转起来，再逐步替换装备。循环顺畅后，再考虑堆暴击、增伤等输出向词缀。</p>
+        </article>
+        <article class="step">
+          <span class="no">阶段四</span>
+          <h3>提升难度与farm</h3>
+          <p>在能稳定通关的前提下逐级提高难度，找到“打得动又不吃力”的区间，长期刷取效率最高。</p>
+        </article>
+        <article class="step">
+          <span class="no">阶段五</span>
+          <h3>针对性冲层</h3>
+          <p>明确当前瓶颈是输出还是生存，再针对性调整装备与技能。避免同时改动过多变量导致无法判断效果。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 常见问题 -->
+  <section class="section" id="faq">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>常见问题<small>新手最容易卡住的几个点</small></h2>
+      </div>
+      <div class="faq">
+        <details open>
+          <summary>暗黑核是什么性质的网站？</summary>
+          <div class="answer">暗黑核是一个面向《暗黑破坏神》系列玩家的内容与资料整理站点，主要提供职业流派思路、装备词缀解读、赛季开荒顺序与刷图路线参考，帮助玩家更快建立自己的判断框架，而不是替代游戏本身。</div>
+        </details>
+        <details>
+          <summary>新手应该先选职业还是先看流派？</summary>
+          <div class="answer">建议先按手感选职业，再在职业内部挑一个主流方向。职业决定了你长期的游戏体验，而流派可以随装备和版本调整。先选一个自己愿意反复操作的职业，比追求所谓“最强”更重要。</div>
+        </details>
+        <details>
+          <summary>为什么装备看起来不错，伤害却上不去？</summary>
+          <div class="answer">常见原因有三类：一是技能循环不顺，资源或冷却跟不上；二是增伤词缀与主输出技能不匹配；三是关键增伤条件没有触发。建议先检查循环，再核对词缀是否对得上，最后才考虑换装备。</div>
+        </details>
+        <details>
+          <summary>赛季角色和永久角色应该怎么安排时间？</summary>
+          <div class="answer">如果你喜欢尝鲜和跟随版本节奏，可以把主要精力放在赛季角色上；如果你更看重长期积累和稳定体验，永久角色同样可以玩得深入。两者并不冲突，按自己的时间安排取舍即可。</div>
+        </details>
+        <details>
+          <summary>本站的数据和结论会随版本变化吗？</summary>
+          <div class="answer">会。游戏更新可能调整技能、装备与机制，因此本站更侧重提供判断方法和思路框架，而非固定数值。涉及具体数值时，请以你当前版本的官方说明和游戏内实际表现为准。</div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <h4>关于暗黑核</h4>
+        <p>暗黑核专注整理《暗黑破坏神》系列的玩法思路与实用资料，内容以帮助玩家建立自己的判断标准为目标，覆盖职业流派、装备词缀、赛季开荒与刷图路线等方向。</p>
+      </div>
+      <div>
+        <h4>内容导航</h4>
+        <ul>
+          <li><a href="#classes">职业流派</a></li>
+          <li><a href="#guides">攻略中心</a></li>
+          <li><a href="#affix">词缀资料</a></li>
+          <li><a href="#route">开荒路线</a></li>
+          <li><a href="#faq">常见问题</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>阅读建议</h4>
+        <ul>
+          <li>先定方向，再抠细节</li>
+          <li>循环优先于数值堆叠</li>
+          <li>版本变动以官方为准</li>
+          <li>多验证，少盲从</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>暗黑核 · 玩家向内容整理站</span>
+      <span>本站与游戏开发及发行方无隶属关系，相关名称与内容版权归各自权利人所有。</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var btn = document.getElementById('navToggle');
+    var nav = document.getElementById('mainNav');
+    if(btn && nav){
+      btn.addEventListener('click', function(){
+        nav.classList.toggle('open');
+      });
+      nav.addEventListener('click', function(e){
+        if(e.target.tagName === 'A'){
+          nav.classList.remove('open');
+        }
+      });
+    }
+  })();
+</script>
+
+</body>
+  </html>
