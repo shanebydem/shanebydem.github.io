@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>91精选-优质内容聚合与精选推荐导航指南</title>
+<meta name="description" content="91精选是一个面向中文用户的内容聚合与精选推荐导航站，帮助你理解精选聚合的运作方式、内容分类、筛选方法、使用场景与常见问题，快速找到值得阅读与收藏的优质内容。">
+<meta name="keywords" content="91精选,精选推荐,内容聚合,优质内容导航,精选榜单,内容筛选">
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+<style>
+  :root{
+    --ink:#161a22;
+    --ink-2:#3c4453;
+    --ink-3:#6b7484;
+    --line:#e3e7ee;
+    --bg:#f6f7fa;
+    --card:#ffffff;
+    --brand:#2f6bff;
+    --brand-deep:#1d47b8;
+    --brand-soft:#eaf0ff;
+    --accent:#ff7a45;
+    --accent-soft:#fff1ea;
+    --radius:14px;
+    --shadow:0 6px 24px rgba(22,26,34,.07);
+    --shadow-hover:0 12px 32px rgba(22,26,34,.12);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Helvetica Neue",Arial,sans-serif;
+    background:var(--bg);
+    color:var(--ink);
+    line-height:1.7;
+    font-size:16px;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;}
+  .wrap{width:100%;max-width:1180px;margin:0 auto;padding:0 20px;}
+
+  /* ---------- header ---------- */
+  .site-header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(255,255,255,.92);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .header-inner{
+    display:flex;align-items:center;justify-content:space-between;
+    height:66px;gap:18px;
+  }
+  .logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:20px;letter-spacing:.5px;}
+  .logo-mark{
+    width:34px;height:34px;border-radius:10px;
+    background:linear-gradient(135deg,var(--brand),#6f9bff);
+    color:#fff;display:flex;align-items:center;justify-content:center;
+    font-size:15px;font-weight:800;
+  }
+  .logo span.sub{font-size:12px;font-weight:500;color:var(--ink-3);letter-spacing:0;}
+  .main-nav{display:flex;gap:6px;flex-wrap:wrap;}
+  .main-nav a{
+    padding:8px 13px;border-radius:9px;font-size:14.5px;color:var(--ink-2);
+    transition:background .18s,color .18s;
+  }
+  .main-nav a:hover{background:var(--brand-soft);color:var(--brand-deep);}
+  .header-cta{
+    display:inline-flex;align-items:center;gap:6px;
+    background:var(--brand);color:#fff;padding:9px 16px;border-radius:10px;
+    font-size:14px;font-weight:600;white-space:nowrap;
+    transition:background .18s,transform .18s;
+  }
+  .header-cta:hover{background:var(--brand-deep);transform:translateY(-1px);}
+  .nav-toggle{display:none;background:none;border:1px solid var(--line);border-radius:9px;padding:7px 11px;font-size:15px;color:var(--ink-2);cursor:pointer;}
+
+  /* ---------- hero ---------- */
+  .hero{
+    background:
+      radial-gradient(900px 380px at 12% -10%,rgba(47,107,255,.16),transparent 62%),
+      radial-gradient(700px 320px at 92% 0%,rgba(255,122,69,.14),transparent 60%),
+      #fff;
+    border-bottom:1px solid var(--line);
+    padding:56px 0 48px;
+  }
+  .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:44px;align-items:center;}
+  .hero-tag{
+    display:inline-block;background:var(--brand-soft);color:var(--brand-deep);
+    font-size:13px;font-weight:600;padding:5px 12px;border-radius:999px;margin-bottom:16px;
+  }
+  .hero h1{
+    font-size:38px;line-height:1.28;margin:0 0 16px;letter-spacing:-.5px;
+  }
+  .hero h1 em{font-style:normal;color:var(--brand);}
+  .hero p.lead{font-size:16.5px;color:var(--ink-2);margin:0 0 26px;max-width:620px;}
+  .hero-actions{display:flex;gap:12px;flex-wrap:wrap;}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:12px 22px;border-radius:11px;font-size:15px;font-weight:600;
+    transition:transform .18s,box-shadow .18s,background .18s;
+  }
+  .btn-primary{background:var(--brand);color:#fff;box-shadow:0 8px 20px rgba(47,107,255,.28);}
+  .btn-primary:hover{background:var(--brand-deep);transform:translateY(-2px);}
+  .btn-ghost{background:#fff;border:1px solid var(--line);color:var(--ink-2);}
+  .btn-ghost:hover{border-color:var(--brand);color:var(--brand-deep);}
+
+  .hero-panel{
+    background:var(--card);border:1px solid var(--line);border-radius:18px;
+    box-shadow:var(--shadow);padding:22px;
+  }
+  .hero-panel h2{font-size:15px;margin:0 0 14px;color:var(--ink-3);font-weight:600;letter-spacing:.4px;}
+  .hero-panel ul{list-style:none;margin:0;padding:0;display:grid;gap:11px;}
+  .hero-panel li{
+    display:flex;gap:11px;align-items:flex-start;font-size:14.5px;color:var(--ink-2);
+    padding-bottom:11px;border-bottom:1px dashed var(--line);
+  }
+  .hero-panel li:last-child{border-bottom:none;padding-bottom:0;}
+  .dot{
+    flex:0 0 24px;height:24px;border-radius:8px;background:var(--brand-soft);color:var(--brand-deep);
+    font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;
+  }
+
+  /* ---------- section base ---------- */
+  section.block{padding:56px 0;}
+  .sec-head{margin-bottom:28px;}
+  .sec-head .kicker{
+    font-size:13px;font-weight:700;letter-spacing:1.6px;color:var(--brand);
+    text-transform:uppercase;margin-bottom:8px;
+  }
+  .sec-head h2{font-size:26px;margin:0 0 10px;letter-spacing:-.3px;}
+  .sec-head p{margin:0;color:var(--ink-3);max-width:760px;font-size:15px;}
+
+  /* ---------- 分类导航 ---------- */
+  .cat-grid{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:16px;
+  }
+  .cat-card{
+    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    padding:20px 18px;transition:transform .18s,box-shadow .18s,border-color .18s;
+  }
+  .cat-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-hover);border-color:#cfdbff;}
+  .cat-card .ico{
+    width:40px;height:40px;border-radius:11px;display:flex;align-items:center;justify-content:center;
+    font-size:18px;margin-bottom:12px;background:var(--brand-soft);
+  }
+  .cat-card h3{font-size:16px;margin:0 0 6px;}
+  .cat-card p{margin:0;font-size:13.5px;color:var(--ink-3);line-height:1.65;}
+
+  /* ---------- 精选榜单 ---------- */
+  .rank-wrap{display:grid;grid-template-columns:1.4fr 1fr;gap:22px;}
+  .rank-list{
+    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    padding:8px 20px;box-shadow:var(--shadow);
+  }
+  .rank-item{
+    display:flex;gap:16px;align-items:flex-start;padding:17px 0;border-bottom:1px solid var(--line);
+  }
+  .rank-item:last-child{border-bottom:none;}
+  .rank-no{
+    flex:0 0 30px;height:30px;border-radius:9px;background:#f0f3f9;color:var(--ink-3);
+    font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center;
+  }
+  .rank-item:nth-child(1) .rank-no{background:var(--brand);color:#fff;}
+  .rank-item:nth-child(2) .rank-no{background:#5b8bff;color:#fff;}
+  .rank-item:nth-child(3) .rank-no{background:#9db6ff;color:#fff;}
+  .rank-body h3{font-size:16px;margin:0 0 5px;}
+  .rank-body p{margin:0;font-size:13.5px;color:var(--ink-3);}
+  .rank-meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px;}
+  .chip{
+    font-size:12px;padding:3px 9px;border-radius:999px;background:#f2f4f8;color:var(--ink-3);
+  }
+  .chip.hot{background:var(--accent-soft);color:#c2521f;}
+
+  .side-card{
+    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    padding:22px;box-shadow:var(--shadow);
+  }
+  .side-card h3{font-size:16px;margin:0 0 14px;padding-bottom:12px;border-bottom:1px solid var(--line);}
+  .side-card ol{margin:0;padding-left:20px;color:var(--ink-2);font-size:14.5px;}
+  .side-card ol li{margin-bottom:10px;}
+  .side-card .note{
+    margin-top:16px;background:#f8faff;border:1px dashed #cfdbff;border-radius:10px;
+    padding:12px 14px;font-size:13px;color:var(--ink-3);line-height:1.7;
+  }
+
+  /* ---------- 使用指南 ---------- */
+  .guide-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+  .guide-card{
+    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    padding:24px 22px;position:relative;overflow:hidden;
+  }
+  .guide-card::before{
+    content:"";position:absolute;left:0;top:0;width:100%;height:3px;
+    background:linear-gradient(90deg,var(--brand),#9db6ff);
+  }
+  .guide-card .step{
+    font-size:12px;font-weight:800;letter-spacing:1.4px;color:var(--brand);margin-bottom:10px;
+  }
+  .guide-card h3{font-size:17px;margin:0 0 10px;}
+  .guide-card p{margin:0;font-size:14px;color:var(--ink-3);line-height:1.75;}
+
+  /* ---------- 场景 ---------- */
+  .scene{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .scene-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;}
+  .scene-item{
+    display:flex;gap:16px;background:var(--bg);border:1px solid var(--line);
+    border-radius:var(--radius);padding:22px;
+  }
+  .scene-item .mark{
+    flex:0 0 44px;height:44px;border-radius:12px;background:#fff;border:1px solid var(--line);
+    display:flex;align-items:center;justify-content:center;font-size:20px;
+  }
+  .scene-item h3{font-size:16px;margin:2px 0 8px;}
+  .scene-item p{margin:0;font-size:14px;color:var(--ink-3);line-height:1.75;}
+
+  /* ---------- 注意事项 ---------- */
+  .tips-list{display:grid;gap:14px;}
+  .tip{
+    display:flex;gap:14px;background:var(--card);border:1px solid var(--line);
+    border-left:4px solid var(--accent);border-radius:12px;padding:18px 20px;
+  }
+  .tip h3{font-size:15.5px;margin:0 0 6px;}
+  .tip p{margin:0;font-size:14px;color:var(--ink-3);line-height:1.75;}
+
+  /* ---------- FAQ ---------- */
+  .faq-list{display:grid;gap:12px;}
+  details.faq{
+    background:var(--card);border:1px solid var(--line);border-radius:12px;
+    padding:16px 20px;transition:border-color .18s;
+  }
+  details.faq[open]{border-color:#cfdbff;box-shadow:var(--shadow);}
+  details.faq summary{
+    cursor:pointer;font-weight:600;font-size:15.5px;list-style:none;
+    display:flex;justify-content:space-between;align-items:center;gap:12px;
+  }
+  details.faq summary::-webkit-details-marker{display:none;}
+  details.faq summary::after{
+    content:"+";font-size:19px;color:var(--brand);font-weight:700;line-height:1;
+  }
+  details.faq[open] summary::after{content:"–";}
+  details.faq p{margin:12px 0 0;font-size:14.5px;color:var(--ink-3);line-height:1.8;}
+
+  /* ---------- CTA ---------- */
+  .cta-band{
+    background:linear-gradient(135deg,#1d47b8,#2f6bff 55%,#5b8bff);
+    border-radius:20px;padding:44px 40px;color:#fff;
+    display:flex;justify-content:space-between;align-items:center;gap:28px;flex-wrap:wrap;
+  }
+  .cta-band h2{margin:0 0 8px;font-size:24px;}
+  .cta-band p{margin:0;font-size:14.5px;color:rgba(255,255,255,.86);max-width:620px;}
+  .cta-band .btn-white{
+    background:#fff;color:var(--brand-deep);padding:12px 24px;border-radius:11px;
+    font-weight:700;font-size:15px;white-space:nowrap;transition:transform .18s;
+  }
+  .cta-band .btn-white:hover{transform:translateY(-2px);}
+
+  /* ---------- footer ---------- */
+  .site-footer{background:#101420;color:#a9b1c2;padding:48px 0 26px;margin-top:56px;}
+  .footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:28px;}
+  .site-footer h3{color:#fff;font-size:15px;margin:0 0 14px;}
+  .site-footer p{font-size:13.5px;line-height:1.85;margin:0;color:#8b93a6;}
+  .site-footer ul{list-style:none;margin:0;padding:0;font-size:13.5px;}
+  .site-footer ul li{margin-bottom:9px;}
+  .site-footer ul a:hover{color:#fff;}
+  .footer-logo{display:flex;align-items:center;gap:10px;color:#fff;font-weight:800;font-size:18px;margin-bottom:12px;}
+  .footer-bottom{
+    border-top:1px solid #232a3a;margin-top:34px;padding-top:18px;
+    display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;
+    font-size:12.5px;color:#6f788c;
+  }
+
+  /* ---------- responsive ---------- */
+  @media (max-width:1000px){
+    .hero-grid{grid-template-columns:1fr;gap:30px;}
+    .cat-grid{grid-template-columns:repeat(2,1fr);}
+    .rank-wrap{grid-template-columns:1fr;}
+    .guide-grid{grid-template-columns:1fr;}
+    .scene-grid{grid-template-columns:1fr;}
+    .footer-grid{grid-template-columns:1fr 1fr;}
+  }
+  @media (max-width:720px){
+    .main-nav{display:none;}
+    .main-nav.open{
+      display:flex;flex-direction:column;position:absolute;top:66px;left:0;right:0;
+      background:#fff;border-bottom:1px solid var(--line);padding:12px 20px 18px;gap:4px;
+      box-shadow:var(--shadow);
+    }
+    .nav-toggle{display:inline-block;}
+    .header-cta{display:none;}
+    .hero{padding:40px 0 36px;}
+    .hero h1{font-size:28px;}
+    .hero p.lead{font-size:15.5px;}
+    section.block{padding:42px 0;}
+    .sec-head h2{font-size:22px;}
+    .cat-grid{grid-template-columns:1fr;}
+    .cta-band{padding:32px 24px;}
+    .cta-band h2{font-size:20px;}
+    .footer-grid{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="logo" href="#top">
+      <span class="logo-mark">91</span>
+      <span>91精选<span class="sub"> · 内容优选导航</span></span>
+    </a>
+    <nav class="main-nav" id="mainNav">
+      <a href="#categories">内容分类</a>
+      <a href="#ranking">精选榜单</a>
+      <a href="#guide">使用指南</a>
+      <a href="#scenes">适用场景</a>
+      <a href="#tips">注意事项</a>
+      <a href="#faq">常见问题</a>
+    </nav>
+    <div style="display:flex;align-items:center;gap:10px;">
+      <a class="header-cta" href="#guide">开始浏览</a>
+      <button class="nav-toggle" id="navToggle" aria-label="展开导航">菜单</button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="hero-tag">内容聚合 · 精选推荐</span>
+        <h1>91精选：把分散的优质内容，整理成一份<em>可读、可筛、可收藏</em>的导航清单</h1>
+        <p class="lead">
+          “91精选”通常指一类以人工或半人工方式，对网络内容做筛选、归类与推荐的内容聚合型站点或栏目。
+          它的价值不在于内容数量，而在于帮你减少无效浏览：先看分类，再看榜单，最后按自己的需求深入阅读。
+          本页整理了这类站点的常见结构、筛选思路与使用建议，方便你快速理解并高效使用。
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#ranking">查看精选榜单结构</a>
+          <a class="btn btn-ghost" href="#guide">了解使用方式</a>
+        </div>
+      </div>
+      <aside class="hero-panel">
+        <h2>快速理解 91精选</h2>
+        <ul>
+          <li><span class="dot">1</span><span><strong>聚合：</strong>把同一主题下分散的内容集中到一个入口，减少反复搜索。</span></li>
+          <li><span class="dot">2</span><span><strong>精选：</strong>通过人工筛选、编辑推荐或规则排序，优先展示质量较高的内容。</span></li>
+          <li><span class="dot">3</span><span><strong>分类：</strong>按主题、形式或更新节奏划分栏目，方便按需浏览。</span></li>
+          <li><span class="dot">4</span><span><strong>导航：</strong>提供清晰的入口与索引，让浏览路径更短、更明确。</span></li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <!-- 分类 -->
+  <section class="block" id="categories">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="kicker">Categories</div>
+        <h2>常见的内容分类方向</h2>
+        <p>不同运营方对“精选”的定义并不相同，但分类逻辑通常围绕主题、形式与更新节奏展开。以下为常见方向，便于你按兴趣快速定位。</p>
+      </div>
+      <div class="cat-grid">
+        <article class="cat-card">
+          <div class="ico">📚</div>
+          <h3>图文阅读</h3>
+          <p>以长文、专栏、图文合集为主，适合希望系统了解某一话题的读者，阅读节奏相对从容。</p>
+        </article>
+        <article class="cat-card">
+          <div class="ico">🎬</div>
+          <h3>影音内容</h3>
+          <p>围绕视频、音频等形式的推荐与整理，通常按题材、时长或更新频率进行编排。</p>
+        </article>
+        <article class="cat-card">
+          <div class="ico">🧩</div>
+          <h3>兴趣专题</h3>
+          <p>将同一兴趣方向的内容打包成专题，适合按主题集中浏览，避免信息碎片化。</p>
+        </article>
+        <article class="cat-card">
+          <div class="ico">🆕</div>
+          <h3>近期更新</h3>
+          <p>以时间线方式呈现较新的内容，适合已经熟悉站点结构、只想跟进动态的用户。</p>
+        </article>
+        <article class="cat-card">
+          <div class="ico">🏆</div>
+          <h3>人气榜单</h3>
+          <p>依据浏览、收藏或编辑推荐等维度排序，帮助新访客快速找到讨论度较高的内容。</p>
+        </article>
+        <article class="cat-card">
+          <div class="ico">🗂️</div>
+          <h3>归档索引</h3>
+          <p>按时间或字母顺序整理的历史内容索引，适合查找较早发布但仍具参考价值的资料。</p>
+        </article>
+        <article class="cat-card">
+          <div class="ico">🔖</div>
+          <h3>收藏与订阅</h3>
+          <p>允许用户保存感兴趣的内容，形成个人清单，减少重复查找的成本。</p>
+        </article>
+        <article class="cat-card">
+          <div class="ico">🧭</div>
+          <h3>编辑推荐</h3>
+          <p>由编辑或运营团队人工挑选的内容集合，通常带有简短的理由说明或导读。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 榜单 -->
+  <section class="block" id="ranking" style="background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="kicker">Ranking</div>
+        <h2>精选榜单是怎么排出来的</h2>
+        <p>榜单是这类站点最常被使用的入口。理解排序依据，能帮助你更理性地看待名次，而不是被单一指标牵着走。</p>
+      </div>
+      <div class="rank-wrap">
+        <div class="rank-list">
+          <div class="rank-item">
+            <div class="rank-no">1</div>
+            <div class="rank-body">
+              <h3>编辑推荐维度</h3>
+              <p>由人工评估内容完整度、信息密度与可读性，通常更看重长期价值，而非短期热度。</p>
+              <div class="rank-meta"><span class="chip">人工筛选</span><span class="chip">稳定</span></div>
+            </div>
+          </div>
+          <div class="rank-item">
+            <div class="rank-no">2</div>
+            <div class="rank-body">
+              <h3>用户行为维度</h3>
+              <p>参考浏览、停留、收藏等行为数据排序，能反映当下关注度，但容易受短期波动影响。</p>
+              <div class="rank-meta"><span class="chip">数据驱动</span><span class="chip hot">波动较大</span></div>
+            </div>
+          </div>
+          <div class="rank-item">
+            <div class="rank-no">3</div>
+            <div class="rank-body">
+              <h3>更新频率维度</h3>
+              <p>按最近更新时间排序，适合追更型用户，但新旧内容的质量差异需要自行判断。</p>
+              <div class="rank-meta"><span class="chip">时效优先</span></div>
+            </div>
+          </div>
+          <div class="rank-item">
+            <div class="rank-no">4</div>
+            <div class="rank-body">
+              <h3>主题聚合维度</h3>
+              <p>围绕某一主题集中整理相关内容，名次更多体现关联度，而不是绝对优劣。</p>
+              <div class="rank-meta"><span class="chip">专题化</span><span class="chip">关联度</span></div>
+            </div>
+          </div>
+          <div class="rank-item">
+            <div class="rank-no">5</div>
+            <div class="rank-body">
+              <h3>综合加权维度</h3>
+              <p>将上述多种指标按权重组合，试图平衡热度与质量，具体权重通常由运营方设定。</p>
+              <div class="rank-meta"><span class="chip">综合排序</span><span class="chip">规则透明</span></div>
+            </div>
+          </div>
+        </div>
+        <aside class="side-card">
+          <h3>看榜单的三个建议</h3>
+          <ol>
+            <li>先明确自己的目的：是追新、补课，还是随便看看，目的不同，榜单用法不同。</li>
+            <li>把榜单当作入口而非结论，进入内容后再判断是否值得继续阅读。</li>
+            <li>注意榜单的更新时间，过期榜单的参考价值会明显下降。</li>
+          </ol>
+          <div class="note">
+            说明：不同站点对榜单的定义与算法差异较大，本页仅归纳常见做法，不针对任何具体平台作出评价。
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- 使用指南 -->
+  <section class="block" id="guide">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="kicker">How to use</div>
+        <h2>三步用好一个精选聚合入口</h2>
+        <p>面对信息量较大的聚合站，最有效的方式不是从头翻到尾，而是先建立筛选顺序，再逐步缩小范围。</p>
+      </div>
+      <div class="guide-grid">
+        <article class="guide-card">
+          <div class="step">STEP 01</div>
+          <h3>先看分类，缩小范围</h3>
+          <p>进入站点后先浏览分类或频道，确认自己关心的主题落在哪个栏目。分类是最省时间的过滤器，能避免你在无关内容上消耗注意力。</p>
+        </article>
+        <article class="guide-card">
+          <div class="step">STEP 02</div>
+          <h3>再看榜单，确定入口</h3>
+          <p>在目标分类下查看榜单或推荐位，挑选两到三个看起来符合预期的条目。不要一次打开太多，否则容易变成新的信息堆积。</p>
+        </article>
+        <article class="guide-card">
+          <div class="step">STEP 03</div>
+          <h3>最后收藏，形成清单</h3>
+          <p>把真正有用的内容加入收藏或记录到自己的清单中，并简单标注理由。长期积累下来，这份清单会比任何榜单都更贴合你的需求。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 场景 -->
+  <section class="block scene" id="scenes">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="kicker">Scenarios</div>
+        <h2>这些场景下，精选聚合更有用</h2>
+        <p>并不是所有浏览都需要聚合站。当你的目标偏向“找方向”而不是“找唯一答案”时，精选类入口的优势会更明显。</p>
+      </div>
+      <div class="scene-grid">
+        <div class="scene-item">
+          <div class="mark">🔍</div>
+          <div>
+            <h3>刚接触一个陌生话题</h3>
+            <p>当你对某个领域还不熟悉，无法准确描述搜索词时，分类清晰的聚合页可以帮你先建立整体印象，再决定深入方向。</p>
+          </div>
+        </div>
+        <div class="scene-item">
+          <div class="mark">⏱️</div>
+          <div>
+            <h3>时间有限，只想看重点</h3>
+            <p>在通勤、午休等碎片时间，直接从榜单或编辑推荐入手，比逐条搜索更高效，也更容易获得相对稳定的阅读体验。</p>
+          </div>
+        </div>
+        <div class="scene-item">
+          <div class="mark">🧠</div>
+          <div>
+            <h3>需要横向比较多个方向</h3>
+            <p>当你在几个相近主题之间犹豫时，聚合页的分类结构能提供横向对照，帮助你判断哪个方向更值得投入时间。</p>
+          </div>
+        </div>
+        <div class="scene-item">
+          <div class="mark">📌</div>
+          <div>
+            <h3>想长期跟踪某个主题</h3>
+            <p>把固定的分类页或专题页加入收藏，定期回访，比每次重新搜索更省力，也更容易观察到内容的变化趋势。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 注意事项 -->
+  <section class="block" id="tips">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="kicker">Notes</div>
+        <h2>使用精选类站点时的注意事项</h2>
+        <p>聚合与推荐只是工具，最终判断仍在你手里。以下几点可以帮助你更稳妥地使用这类入口。</p>
+      </div>
+      <div class="tips-list">
+        <div class="tip">
+          <div>
+            <h3>区分“推荐”与“结论”</h3>
+            <p>被推荐只代表它进入了某个筛选范围，并不等于内容一定准确或适合你。涉及重要决策时，仍建议交叉核对多个来源。</p>
+          </div>
+        </div>
+        <div class="tip">
+          <div>
+            <h3>留意内容的发布时间</h3>
+            <p>部分领域的知识更新较快，较早的内容可能已经不再适用。阅读前先确认时间信息，能减少误判。</p>
+          </div>
+        </div>
+        <div class="tip">
+          <div>
+            <h3>控制单次浏览数量</h3>
+            <p>聚合页容易让人不断点开新条目。建议给自己设定一个小目标，例如只看三条并做记录，避免浏览变成无目的的滑动。</p>
+          </div>
+        </div>
+        <div class="tip">
+          <div>
+            <h3>保护个人信息与设备安全</h3>
+            <p>浏览任何站点时，都应避免在不明页面提交敏感信息，并保持浏览器与安全软件处于正常更新状态。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="block" id="faq" style="background:#fff;border-top:1px solid var(--line);">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="kicker">FAQ</div>
+        <h2>关于 91精选 的常见问题</h2>
+        <p>以下问题围绕这类内容聚合与精选推荐入口的常见疑问展开，回答保持中立、可验证的表述。</p>
+      </div>
+      <div class="faq-list">
+        <details class="faq" open>
+          <summary>“91精选”具体指什么？</summary>
+          <p>它通常是一类内容聚合与精选推荐入口的名称，核心特征是把分散的内容按主题或形式整理在一起，并提供筛选、榜单或推荐位。不同运营方的具体范围与规则可能不同，建议以你实际访问的页面说明为准。</p>
+        </details>
+        <details class="faq">
+          <summary>精选内容和普通搜索有什么差别？</summary>
+          <p>搜索偏向“你已知要什么”，精选偏向“帮你发现值得看什么”。前者依赖准确的关键词，后者依赖分类与编辑判断。两者互补，并不冲突。</p>
+        </details>
+        <details class="faq">
+          <summary>榜单排名越高就越值得看吗？</summary>
+          <p>不一定。排名反映的是某种排序规则下的相对位置，可能与你的具体需求并不匹配。把榜单当作参考入口，结合自己的目的判断，会更稳妥。</p>
+        </details>
+        <details class="faq">
+          <summary>如何判断一个聚合页面是否靠谱？</summary>
+          <p>可以观察几点：分类是否清晰、内容是否有明确的来源或时间信息、页面是否说明排序依据、是否存在过度诱导点击的设计。信息透明、结构清楚的页面通常更值得信任。</p>
+        </details>
+        <details class="faq">
+          <summary>浏览这类站点需要注意什么？</summary>
+          <p>保持基本的网络安全习惯即可：不随意提交个人信息、不下载来源不明的文件、对夸张表述保持警惕，并在重要事项上参考多个独立来源。</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="block">
+    <div class="wrap">
+      <div class="cta-band">
+        <div>
+          <h2>从分类开始，而不是从海量列表开始</h2>
+          <p>先确定主题，再看推荐，最后留下真正有用的内容。用这种方式使用精选聚合入口，信息获取会轻松很多。</p>
+        </div>
+        <a class="btn-white" href="#categories">回到内容分类</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo"><span class="logo-mark">91</span>91精选</div>
+        <p>一个关于内容聚合与精选推荐的结构化说明页面，帮助你理解分类、榜单与筛选逻辑，更高效地找到值得阅读的内容。</p>
+      </div>
+      <div>
+        <h3>内容导航</h3>
+        <ul>
+          <li><a href="#categories">内容分类</a></li>
+          <li><a href="#ranking">精选榜单</a></li>
+          <li><a href="#guide">使用指南</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>参考信息</h3>
+        <ul>
+          <li><a href="#scenes">适用场景</a></li>
+          <li><a href="#tips">注意事项</a></li>
+          <li><a href="#faq">常见问题</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>使用建议</h3>
+        <ul>
+          <li>先分类后榜单</li>
+          <li>留意更新时间</li>
+          <li>保持安全习惯</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2024 91精选 · 内容优选导航说明页</span>
+      <span>本页内容为通用信息整理，不针对任何具体平台作出评价</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var toggle = document.getElementById('navToggle');
+    var nav = document.getElementById('mainNav');
+    if(!toggle || !nav) return;
+    toggle.addEventListener('click', function(){
+      nav.classList.toggle('open');
+    });
+    nav.addEventListener('click', function(e){
+      if(e.target.tagName === 'A'){
+        nav.classList.remove('open');
+      }
+    });
+  })();
+</script>
+
+</body>
+      </html>
